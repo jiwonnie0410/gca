@@ -11,7 +11,7 @@
 </head>
 <body>
 
-Rank.jsp
+challenge.jsp
 
 </body>
 </html>

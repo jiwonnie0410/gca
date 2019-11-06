@@ -11,7 +11,7 @@
 </head>
 <body>
 
-Challenge.jsp
+all_history.jpg
 
 </body>
 </html>

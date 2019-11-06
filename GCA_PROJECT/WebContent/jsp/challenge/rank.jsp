@@ -11,7 +11,7 @@
 </head>
 <body>
 
-Option.jsp
+rank.jsp
 
 </body>
 </html>
