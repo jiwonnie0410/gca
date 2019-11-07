@@ -7,8 +7,8 @@
 <meta charset="UTF-8">
 <title>함께 운동할 상대를 찾아보세요!</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900" rel="stylesheet">
+<%--meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900" rel="stylesheet"
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/open-iconic-bootstrap.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/animate.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/owl.carousel.min.css">
@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/ionicons.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/flaticon.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/icomoon.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css"--%>
 
 <script>
 
@@ -388,7 +388,7 @@
 </section>
 
 
-<script src="${pageContext.request.contextPath }/js/jquery.min.js"></script>
+<%--script src="${pageContext.request.contextPath }/js/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath }/js/jquery-migrate-3.0.1.min.js"></script>
 <script src="${pageContext.request.contextPath }/js/popper.min.js"></script>
 <script src="${pageContext.request.contextPath }/js/bootstrap.min.js"></script>
@@ -402,7 +402,7 @@
 <script src="${pageContext.request.contextPath }/js/scrollax.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="${pageContext.request.contextPath }/js/google-map.js"></script>
-<script src="${pageContext.request.contextPath }/js/main.js"></script>
+<script src="${pageContext.request.contextPath }/js/main.js"></script--%>
 
 </body>
 </html>

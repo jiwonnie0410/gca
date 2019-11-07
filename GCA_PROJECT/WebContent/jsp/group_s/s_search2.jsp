@@ -19,18 +19,33 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 <script>
 
 </script>
+
 <style>
+
+.card-img-top {
+	opacity: 0.2;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
 
 </style>
 </head>
 
 <body>
 
-<div>
-
+<div class="card" style="width:500px;">
+  <img class="card-img-top" src="${pageContext.request.contextPath }/images/about.jpg" alt="Card image">
+  <div class="card-img-overlay">
+    <h4 class="card-title">같이 달리기 하실 분!</h4>
+    <p class="card-text">3월 8일 오전 10시 30분</p>
+    <a href="#" class="btn btn-primary">See Profile</a>
+  </div>
 </div>
 
 </body>
