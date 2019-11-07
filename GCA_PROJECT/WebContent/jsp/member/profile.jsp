@@ -43,28 +43,12 @@ body{
     right: 0;
     top: 0;
 }
-.profile-head h5{
-    color: #333;
-}
-.profile-head h6{
-    color: #0062cc;
-}
-.profile-edit-btn{
-    border: none;
-    border-radius: 1.5rem;
-    width: 70%;
-    padding: 2%;
-    font-weight: 600;
-    color: #6c757d;
-    cursor: pointer;
-}
 .proile-rating{
     font-size: 12px;
     color: #818182;
     margin-top: 5%;
 }
 .proile-rating span{
-    color: #495057;
     font-size: 15px;
     font-weight: 600;
 }
@@ -77,7 +61,7 @@ body{
 }
 .profile-head .nav-tabs .nav-link.active{
     border: none;
-    border-bottom:2px solid #0062cc;
+    border-bottom:2px solid;
 }
 .profile-work{
     padding: 14%;
@@ -85,13 +69,11 @@ body{
 }
 .profile-work p{
     font-size: 12px;
-    color: #818182;
     font-weight: 600;
     margin-top: 10%;
 }
 .profile-work a{
     text-decoration: none;
-    color: #495057;
     font-weight: 600;
     font-size: 14px;
 }
@@ -103,9 +85,28 @@ body{
 }
 .profile-tab p{
     font-weight: 600;
-    color: #0062cc;
 }
 </style>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900" rel="stylesheet">
+
+<link rel="stylesheet" href="${pageContext.request.contextPath }/slim/css/open-iconic-bootstrap.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/slim/css/animate.css">
+
+<link rel="stylesheet" href="${pageContext.request.contextPath }/slim/css/owl.carousel.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/slim/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/slim/css/magnific-popup.css">
+
+<link rel="stylesheet" href="${pageContext.request.contextPath }/slim/css/aos.css">
+
+<link rel="stylesheet" href="${pageContext.request.contextPath }/slim/css/ionicons.min.css">
+
+<link rel="stylesheet" href="${pageContext.request.contextPath }/slim/css/flaticon.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/slim/css/icomoon.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/slim/css/style.css">
+
+
 </head>
 <body>
 <div class="container emp-profile">
@@ -256,4 +257,20 @@ body{
             </form>           
         </div>
 </body>
+<script src="${pageContext.request.contextPath }/slim/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath }/slim/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="${pageContext.request.contextPath }/slim/js/popper.min.js"></script>
+<script src="${pageContext.request.contextPath }/slim/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath }/slim/js/jquery.easing.1.3.js"></script>
+<script src="${pageContext.request.contextPath }/slim/js/jquery.waypoints.min.js"></script>
+<script src="${pageContext.request.contextPath }/slim/js/jquery.stellar.min.js"></script>
+<script src="${pageContext.request.contextPath }/slim/js/owl.carousel.min.js"></script>
+<script src="${pageContext.request.contextPath }/slim/js/jquery.magnific-popup.min.js"></script>
+<script src="${pageContext.request.contextPath }/slim/js/aos.js"></script>
+<script src="${pageContext.request.contextPath }/slim/js/jquery.animateNumber.min.js"></script>
+<script src="${pageContext.request.contextPath }/slim/js/scrollax.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script src="${pageContext.request.contextPath }/slim/js/google-map.js"></script>
+
+<script src="${pageContext.request.contextPath }/slim/js/main.js"></script>
 </html>
