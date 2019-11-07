@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/sitemesh">
+
+	<!-- Excludes will never be decorated by Sitemesh. -->
+	<excludes>
+		<pattern>*/exclude/*</pattern>
+		<pattern>/data/plaintext/*</pattern>
+		<pattern>*.txt</pattern>
+	</excludes>
+
+	<!-- 메인 레이아웃 -->
+	<decorator name="basic-theme" page="layout.jsp">
+		<pattern>/index.jsp</pattern>
+		<pattern>/main_*</pattern>
+		<pattern>*</pattern>
+	</decorator>
+	
+	<!-- 관리자 레이아웃 
+	<decorator name="admin-theme" page="adminLayout.jsp">
+		<pattern>/admin*</pattern>	
+		<pattern>/admin_Index.do</pattern>
+	</decorator>
+	-->
+	
+</decorators>

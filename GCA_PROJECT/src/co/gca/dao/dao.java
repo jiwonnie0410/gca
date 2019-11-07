@@ -1,5 +1,5 @@
 package co.gca.dao;
 
-public class challenge {
+public class dao {
 
 }
