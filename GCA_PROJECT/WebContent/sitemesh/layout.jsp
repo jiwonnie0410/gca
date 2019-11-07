@@ -26,6 +26,23 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     
     
+    <!-- user styles -->
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+    <link href="${pageContext.request.contextPath}/css/main.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/font-style.css" rel="stylesheet"> <!-- 아이콘  -->
+    <link href="${pageContext.request.contextPath}/css/register.css" rel="stylesheet">
+
+	<script type="text/javascript" src="js/jquery.js"></script>    
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    
+     <!-- userlist Le styles -->
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/bootstrap/bootstrap.min.css" />
+    <!-- DATA TABLE CSS -->
+    <link href="${pageContext.request.contextPath }/css/table.css" rel="stylesheet">
+    <script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery.js"></script>    
+    <script type="text/javascript" src="${pageContext.request.contextPath }/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath }/js/admin.js"></script>
+    
     
 
 
