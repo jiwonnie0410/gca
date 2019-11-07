@@ -9,90 +9,9 @@
 
 
 
-<!-- 부트스트랩용 링크 -->
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900" rel="stylesheet">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/css/open-iconic-bootstrap.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/css/animate.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/css/owl.carousel.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/css/owl.theme.default.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/css/magnific-popup.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/css/aos.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/css/ionicons.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/css/flaticon.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/css/icomoon.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css">
-
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-<!-- 모달 링크용 modal -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-<!-- 참가버튼 css -->	
-<style type="text/css">
-.page {
-  width: 200px;
-  height: 100px;
-}
-
-/* add animation to bg color  */
-
-@keyframes random-bg {
-  from {
-    filter: hue-rotate(0);
-  }
-  to {
-    filter: hue-rotate(360deg);
-  }
-}
-
-.join-btn {
-  /* change bg color to get different hues    */
-  background-color: salmon;
-  width: 200px;
-  height: 80px;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  outline: none;
-  cursor: pointer;
-  font-weight: bold;
-  font-size : 30px;
-}
-
-.join-btn:hover {
-  animation: random-bg .5s linear infinite, grow 1300ms ease infinite;
-}
-
-.start-challenge {
-  background-color: #fff !important;
-  /* change color of button text when fun is started   */
-  color: salmon !important;
-  font-size : 40px;
-}
-
-/* pulsating effect on button */
-@keyframes grow {
-  0% {
-    transform: scale(1);
-  }
-  14% {
-    transform: scale(1.3);
-  }
-  28% {
-    transform: scale(1);
-  }
-  42% {
-    transform: scale(1.3);
-  }
-  70% {
-    transform: scale(1);
-  }
-}
-</style>	
 
 <!-- 참가버튼 JS -->
 <script>
@@ -135,6 +54,11 @@ $(function() {
 	    });
 	
         $("#special-join-add").click(function(){
+			$("#payModal").modal();
+        });
+	
+	
+         $("#paynow").click(function(){
         	$("#special-join").toggleClass('start-challenge');
 			  var $page = $('.page');
 			  $page.toggleClass('color-bg-start')
@@ -143,9 +67,7 @@ $(function() {
 			  $("#special-join").hasClass('start-challenge') ?
 				  $("#special-join").text('참가중') :
 				  $("#special-join").text('참가');
-        });
-	
-	    
+        }); 
 
 })//
 
@@ -167,11 +89,12 @@ $(function() {
 		      <!-- Modal content-->
 		      <div class="modal-content">
 		        <div class="modal-header">
-		          <h4 class="modal-title">기본챌린지</h4>
+		          <h4 class="modal-title">자전거관련 반짝 3번 참여하기</h4>
 		          <button type="button" class="close" data-dismiss="modal">×</button>
 		        </div>
 		        <div class="modal-body">
-		          <p>자전거 1주일에 3번 타기</p>
+		          <p>기본챌린지에 참여하시겠습니까?</p> 
+		          <p>참가시 취소가 되지 않습니다</p>
 		        </div>
 		        <div class="modal-footer">
 		          <button type="button" class="btn btn-primary" data-dismiss="modal" id="basic-join-add">Join</button>
@@ -190,31 +113,67 @@ $(function() {
 		      <!-- Modal content-->
 		      <div class="modal-content">
 		        <div class="modal-header">
-		          <h4 class="modal-title">스페셜 챌린지</h4>
+		          <h4 class="modal-title">크리스마스에 홈트레이닝하기</h4>
 		          <button type="button" class="close" data-dismiss="modal">×</button>
 		        </div>
 		        <div class="modal-body">
-		          <p>12월 25일에 눈보기</p>
+		          <p>스페셜챌린지에 참여하시겠습니까?</p>
+		          <p>참가시 소정의 보증금이 필요하며 결제후 취소가 되지 않습니다</p>
 		        </div>
 		        <div class="modal-footer">
 		          <button type="button" class="btn btn-primary" data-dismiss="modal" id="special-join-add">Join</button>
 		          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 		        </div>
 		      </div>
-		      
 		    </div>
 		  </div>
+		  
+		  <!-- 스페셜챌린지-결제용 모달 -->
+		  <div class="modal fade" id="payModal" role="dialog">
+		    <div class="modal-dialog">
+		    
+		      <!-- Modal content-->
+		      <div class="modal-content">
+		        <div class="modal-header">
+		          <h4 class="modal-title">보증금 결제</h4>
+		          <button type="button" class="close" data-dismiss="modal">×</button>
+		        </div>
+		        <div class="modal-body">
+		          <h4><p>* 스페셜 챌린지 참가규칙 *</p></h4>
+		          <p>챌린지 100% 성공시 보증금 100% 페이백 및 점수 획득!</p>
+		          <p>챌린지 80% 이상 성공시 보증금 80% 페이백</p>
+		          	  <b>결제금액</b><br>
+			          <input type="radio" name="costGroup">1,000원
+			          <input type="radio" name="costGroup">2,000원
+			          <input type="radio" name="costGroup" checked="checked">3,000원
+					  <input type="radio" name="costGroup">4,000원
+					  <input type="radio" name="costGroup">5,000원
+					  <hr>
+					  <b>결제유형</b><br>
+			          <input type="radio" name="payGroup" checked="checked">네이버페이
+			          <input type="radio" name="payGroup">카카오페이
+			          <input type="radio" name="payGroup">이니시스
+					  <input type="radio" name="payGroup">계좌이체
+				</div>
+			          
+			    <div class="modal-footer">
+			          <button type="button" class="btn btn-primary" data-dismiss="modal" id="paynow">결제완료</button>
+			          <button type="button" class="btn btn-default" data-dismiss="modal">결제취소</button>
+		       </div>
+	        </div>
+	      </div>
+	    </div>
+		  
 
 
-      
       
       <!-- 챌린지 카드 시작 -->
       <div class="container">
         <div class="row justify-content-center pb-5">
 	        <div class="col-md-12 heading-section text-center ftco-animate">
-	        	<span class="subheading">특별한 당신을 위한</span>
+	        	<span class="subheading"><b>특별한 당신을 위한</b></span>
 	          <h2 class="mb-4">챌린지 목록</h2>
-	          <p>의지를 돈으로 사십시오!</p>
+	          <b><font color="grey">매일매일 함께 좋은 습관 만들기!</font></b>
 	        </div>
 	      </div>
 	      <div class="ftco-schedule">
@@ -235,15 +194,15 @@ $(function() {
 
 	              <div class="tab-pane fade show active" id="v-pills-8" role="tabpanel" aria-labelledby="day-8-tab">
 	              	<div class="coach-wrap ftco-animate d-sm-flex">
-	              		<div class="img coach-img" style="background-image: url(${pageContext.request.contextPath }/images/trainer-1.jpg);"></div>
+	              		<div class="img coach-img" style="background-image: url(${pageContext.request.contextPath }/images/cycling1.jpg);"></div>
 	              		<div class="text pl-md-5">
-	              			<span class="time">12월 15일 ~ 23일(7일)</span>
+	              			<span class="time">12월 15일(일) ~ 23일(토) 총7일</span>
 	              			<h2><a href="#">자전거관련 반짝 3번 참여하기</a></h2>
 	              			<p>자전거는 유산소운동으로 건강에 좋습니다</p>
-	              			<h3 class="coach-name">&mdash; <a href="#">Anthony Miller</a> <span class="position">Cardio Expert</span></h3>
-	              			<br>
+	              			<h4>점수: 100점</h4>
+	              			<h4>마감까지 nn일</h4>
 	              			<div class="page">
-							 <button type="button" class="join-btn" id="basic-join">참가</button>
+								<button type="button" class="join-btn" id="basic-join">참가</button>
 							</div>
 	              		</div>
 	              	</div>
@@ -252,15 +211,16 @@ $(function() {
 				  <!-- 스페셜 챌린지 -->
 	              <div class="tab-pane fade" id="v-pills-9" role="tabpanel" aria-labelledby="v-pills-day-9-tab">
 	              	<div class="coach-wrap ftco-animate d-sm-flex">
-	              		<div class="img coach-img" style="background-image: url(${pageContext.request.contextPath }/images/trainer-4.jpg);"></div>
+	              		<div class="img coach-img" style="background-image: url(${pageContext.request.contextPath }/images/image_2.jpg);"></div>
 	              		<div class="text pl-md-5">
 	              			<span class="time">12월 25일(수)</span>
 	              			<h2><a href="#">크리스마스에 홈트레이닝하기</a></h2>
 	              			<p>나가봐야 사람만 많아요</p>
-	              			<h3 class="coach-name">&mdash; <a href="#">Jason Davis</a> <span class="position">Body Building</span></h3>
-	              			<br>
+	              			<h4>점수: 300점</h4>
+	              			<h4>보증금: 1천원-5천원 (1천원단위)</h4>
+	              			<h4>마감까지 nn일</h4>
 	              			<div class="page">
-							 <button type="button" class="join-btn" id="special-join">참가</button>
+								<button type="button" class="join-btn" id="special-join">참가</button>
 							</div>
 	              		</div>
 	              	</div>
@@ -273,19 +233,7 @@ $(function() {
     </section>
     
 
-<script src="${pageContext.request.contextPath }/js/jquery.min.js"></script>
-<script src="${pageContext.request.contextPath }/js/jquery-migrate-3.0.1.min.js"></script>
-<script src="${pageContext.request.contextPath }/js/popper.min.js"></script>
-<script src="${pageContext.request.contextPath }/js/bootstrap.min.js"></script>
-<script src="${pageContext.request.contextPath }/js/jquery.easing.1.3.js"></script>
-<script src="${pageContext.request.contextPath }/js/jquery.waypoints.min.js"></script>
-<script src="${pageContext.request.contextPath }/js/jquery.stellar.min.js"></script>
-<script src="${pageContext.request.contextPath }/js/owl.carousel.min.js"></script>
-<script src="${pageContext.request.contextPath }/js/jquery.magnific-popup.min.js"></script>
-<script src="${pageContext.request.contextPath }/js/aos.js"></script>
-<script src="${pageContext.request.contextPath }/js/jquery.animateNumber.min.js"></script>
-<script src="${pageContext.request.contextPath }/js/scrollax.min.js"></script>
-<script src="${pageContext.request.contextPath }/js/main.js"></script>
+
 
 </body>
 </html>
