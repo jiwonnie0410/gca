@@ -94,14 +94,11 @@ body{
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/open-iconic-bootstrap.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/animate.css">
 
-<link rel="stylesheet" href="${pageContext.request.contextPath /css/owl.carousel.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath} /css/owl.carousel.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/owl.theme.default.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/magnific-popup.css">
-
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/aos.css">
-
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/ionicons.min.css">
-
 <link rel="stylesheet" href="${pageContext.request.contextPath }css/flaticon.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/icomoon.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css">
@@ -271,6 +268,5 @@ body{
 <script src="${pageContext.request.contextPath }/js/scrollax.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="${pageContext.request.contextPath }/js/google-map.js"></script>
-
 <script src="${pageContext.request.contextPath }/js/main.js"></script>
 </html>
