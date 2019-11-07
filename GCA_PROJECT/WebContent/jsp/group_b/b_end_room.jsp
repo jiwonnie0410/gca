@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+마감된 동호회매치
 </body>
 </html>

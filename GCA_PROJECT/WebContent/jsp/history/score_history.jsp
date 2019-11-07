@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-챌린지히스토리
+스코어 히스토리
 </body>
 </html>

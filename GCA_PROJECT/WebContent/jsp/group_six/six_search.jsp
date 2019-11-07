@@ -5,10 +5,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>반짝을 찾아보세요!</title>
+<title>용병을 찾아보세요!</title>
 <script>
 
 </script>
+<style>
+
+</style>
 </head>
 
 <body>

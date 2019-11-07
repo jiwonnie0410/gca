@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-동호회 대기방
+동호회매치 대기방
 </body>
 </html>
