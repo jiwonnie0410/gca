@@ -39,7 +39,6 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/bootstrap/bootstrap.min.css" />
     <!-- DATA TABLE CSS -->
     <link href="${pageContext.request.contextPath }/css/table.css" rel="stylesheet">
-    <script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery.js"></script>    
     <script type="text/javascript" src="${pageContext.request.contextPath }/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath }/js/admin.js"></script>
     
