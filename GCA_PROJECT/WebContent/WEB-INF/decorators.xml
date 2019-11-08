@@ -6,8 +6,6 @@
 		<pattern>*/exclude/*</pattern>
 		<pattern>/data/plaintext/*</pattern>
 		<pattern>*.txt</pattern>
-		<pattern>*s_search2.jsp*</pattern>
-		
 		<pattern>*addEdit.jsp*</pattern>
 	</excludes>
 
