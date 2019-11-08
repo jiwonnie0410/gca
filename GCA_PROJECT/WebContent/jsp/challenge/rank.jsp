@@ -8,6 +8,14 @@
 <title>Insert title here</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style>
+
+.tankTable {
+width: 600px;
+align: center;
+}
+
+</style>
 
 </head>
 <body>
@@ -15,7 +23,7 @@
 <div style="text-align:center"><h1>회원 랭킹</h1></div>
 
 
-<table class="rankTable" style="width: 600px" align="center">
+<table class="rankTable">
   <thead>
     <tr>
       <th scope="col">순위</th>
@@ -46,7 +54,7 @@
     </tr>
     <tr>
       <th scope="row">5</th>
-      <td>아나</td>
+      <td>빡빡이</td>
       <td>20200</td>
     </tr>
   </tbody>

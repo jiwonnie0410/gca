@@ -17,6 +17,24 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
+<!-- 부트스트랩용 링크 -->
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900" rel="stylesheet">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/open-iconic-bootstrap.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/animate.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/owl.carousel.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/magnific-popup.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/aos.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/ionicons.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/flaticon.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/icomoon.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css">
+
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/surim/joinButton.css">
+
+
+
 </head>
 
 
@@ -191,7 +209,23 @@
 	   </div>
     </section>
     
+     <!-- loader -->
+<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+<script src="${pageContext.request.contextPath }/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="${pageContext.request.contextPath }/js/popper.min.js"></script>
+<script src="${pageContext.request.contextPath }/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath }/js/jquery.easing.1.3.js"></script>
+<script src="${pageContext.request.contextPath }/js/jquery.waypoints.min.js"></script>
+<script src="${pageContext.request.contextPath }/js/jquery.stellar.min.js"></script>
+<script src="${pageContext.request.contextPath }/js/owl.carousel.min.js"></script>
+<script src="${pageContext.request.contextPath }/js/jquery.magnific-popup.min.js"></script>
+<script src="${pageContext.request.contextPath }/js/aos.js"></script>
+<script src="${pageContext.request.contextPath }/js/jquery.animateNumber.min.js"></script>
+<script src="${pageContext.request.contextPath }/js/scrollax.min.js"></script>
+<script src="${pageContext.request.contextPath }/js/main.js"></script>
+<script src="${pageContext.request.contextPath }/js/main.js"></script>
 
+<script src="${pageContext.request.contextPath }/js/challenge.js"></script>
 
 
 </body>
