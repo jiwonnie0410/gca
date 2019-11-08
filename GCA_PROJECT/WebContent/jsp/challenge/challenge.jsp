@@ -85,7 +85,8 @@
 		        <div class="modal-body">
 		          <h4><p>* 스페셜 챌린지 참가규칙 *</p></h4>
 		          <p>챌린지 100% 성공시 보증금 100% 페이백 및 점수 획득!</p>
-		          <p>챌린지 80% 이상 성공시 보증금 80% 페이백</p>
+		          <p>챌린지 80% 이상 성공시 보증금 100% 페이백</p>
+		          <p>챌린지 80% 미만 보증금 80% 페이백</p>
 		          	  <b>결제금액</b><br>
 			          <input type="radio" name="costGroup">1,000원
 			          <input type="radio" name="costGroup">2,000원
@@ -128,14 +129,13 @@
 	              <a class="nav-link ftco-animate active" id="v-pills-8-tab" data-toggle="pill" href="#v-pills-8" role="tab" aria-controls="v-pills-8" aria-selected="true">기본 챌린지 <span>Basic Challenges</span></a>
 	            <!-- 스페셜 챌린지 -->
 	              <a class="nav-link ftco-animate" id="v-pills-9-tab" data-toggle="pill" href="#v-pills-9" role="tab" aria-controls="v-pills-9" aria-selected="false">스페셜 챌린지 <span>Special Challenges</span></a>
+	              <a class="nav-link ftco-animate" id="v-pills-10-tab" data-toggle="pill" href="#v-pills-10" role="tab" aria-controls="v-pills-10" aria-selected="false">Wednesday <span>Aerobic Program</span></a>
 	            </div>
 	          </div>
 	          
 	          <!-- 기본 챌린지 -->
 	          <div class="col-md-8 tab-wrap">
-	            
 	            <div class="tab-content" id="v-pills-tabContent">
-
 	              <div class="tab-pane fade show active" id="v-pills-8" role="tabpanel" aria-labelledby="day-8-tab">
 	              	<div class="coach-wrap ftco-animate d-sm-flex">
 	              		<div class="img coach-img" style="background-image: url(${pageContext.request.contextPath }/images/cycling1.jpg);"></div>
@@ -169,6 +169,21 @@
 	              		</div>
 	              	</div>
 	              </div>
+	              
+	              
+	              <div class="tab-pane fade" id="v-pills-10" role="tabpanel" aria-labelledby="v-pills-day-10-tab">
+	              	<div class="coach-wrap ftco-animate d-sm-flex">
+	              		<div class="img coach-img" style="background-image: url(images/trainer-3.jpg);"></div>
+	              		<div class="text pl-md-5">
+	              			<span class="time">08:00AM - 10:00AM</span>
+	              			<h2><a href="#">Body Building</a></h2>
+	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+	              			<h3 class="coach-name">&mdash; <a href="#">Mark Harlem</a> <span class="position">Health Expert</span></h3>
+	              		</div>
+	              	</div>
+	              </div>
+	              
+	              
 	            </div>
 	           </div>
 	        </div>
