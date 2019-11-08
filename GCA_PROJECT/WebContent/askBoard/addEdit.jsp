@@ -39,49 +39,14 @@
                         $("#password").focus();
                         return false;
                     }
-                     
-                    //값 셋팅
-                    var objParams = {
-                            <c:if test="${boardView.id != null}"> //있으면 수정 없으면 등록
-                            id          : $("#board_id").val(),
-                            </c:if>
-                            subject     : $("#subject").val(),
-                            writer      : $("#writer").val(),
-                            password    : $("#password").val(),
-                            content     : content
-                    };
-                     
-                    //ajax 호출
-                    $.ajax({
-                        url         :   "/board/save",
-                        dataType    :   "json",
-                        contentType :   "application/x-www-form-urlencoded; charset=UTF-8",
-                        type        :   "post",
-                        data        :   objParams,
-                        success     :   function(retVal){
- 
-                            if(retVal.code == "OK") {
-                                alert(retVal.message);
-                                location.href = "/board/list";  
-                            } else {
-                                alert(retVal.message);
-                            }
-                             
-                        },
-                        error       :   function(request, status, error){
-                            console.log("AJAX_ERROR");
-                        }
-                    });
-                     
-                     
                 });
-                 
             });
         </script>
     </head>
     <body>
         <input type="hidden" id="board_id" name="board_id" value="${boardView.id}" />
         <div align="center">
+        <h1>홍보게시판 작성</h1>
             </br>
             </br>
             <table width="1200px">
