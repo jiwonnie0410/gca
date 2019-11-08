@@ -214,12 +214,12 @@
                 <div id="pagination"></div>
                 <div class="col-sm-2"></div>
 				<div class="col-sm-4 text-success" style="text-align: right;"> 
-					<button class="btn btn-primary px-5 py-3"   type="button"  data-toggle="modal" data-target="#myModal">Write</button>
+					<button class="btn btn-primary px-5 py-3"   type="button"  data-toggle="modal" >Write</button><!-- data-target="#myModal" -->
 				</div>
             </div>
         </form>
         
-   <!-- Modal -->
+<%--    <!-- Modal -->
   	<div class="modal fade" id="myModal" role="dialog" >
     	<div class="modal-dialog modal-lg">
     
@@ -235,7 +235,7 @@
 			<div class="panel panel-success" style="margin-top: 10px;">
 				<div class="panel-heading">홍보</div>
 				<div class="panel-body">
-					<%-- form --%>
+					form
 					<form class="form-horizontal" role="form" action="${review_write}" method="post">
 						<div class="form-group">
 							<label class="control-label col-sm-2">작성자(ID):</label>
@@ -274,7 +274,7 @@
       </div>
       
     </div>
-  </div>
+  </div> --%>
   
   
   
