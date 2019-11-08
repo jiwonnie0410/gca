@@ -8,6 +8,7 @@
 		<pattern>*.txt</pattern>
 		<pattern>*s_search2.jsp*</pattern>
 		
+		<pattern>*addEdit.jsp*</pattern>
 	</excludes>
 
 	<!-- 메인 레이아웃 -->
