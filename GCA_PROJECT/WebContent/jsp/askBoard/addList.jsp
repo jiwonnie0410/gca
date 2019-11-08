@@ -106,7 +106,9 @@
 							<div class="col-sm-10">
 								<textarea class="form-control" id="p_content"></textarea>
 									<script type="text/javascript">
-									 CKEDITOR.replace('p_content',{height: 300});
+										 CKEDITOR.replace('p_content'
+										                , {height: 500                                                  
+										                 });
 									</script>
 							</div>
 						</div>

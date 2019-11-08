@@ -117,9 +117,6 @@
 							<label class="control-label col-sm-2" for="pwd">내용:</label>
 							<div class="col-sm-10">
 								<textarea class="form-control" id="p_content"></textarea>
-									<script type="text/javascript">
-									 CKEDITOR.replace('p_content',{height: 300});
-									</script>
 							</div>
 						</div>
 				
