@@ -2,407 +2,345 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <title>함께 운동할 상대를 찾아보세요!</title>
 
-<%--meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900" rel="stylesheet"
-<link rel="stylesheet" href="${pageContext.request.contextPath }/css/open-iconic-bootstrap.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/css/animate.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/css/owl.carousel.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/css/owl.theme.default.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/css/magnific-popup.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/css/aos.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/css/ionicons.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/css/flaticon.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/css/icomoon.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css"--%>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
 <script>
+$(document).ready(function(){
+	
+	var day01 = document.getElementById("day01").innerHTML;
+	var year = day01.substring(0,4);
+	var month = day01.substring(5,7);
+	var day = day01.substring(8,10);
+	
+	var day02 = document.getElementById("day02").innerHTML;
+	var ph = day02.substring(0,2);
+	var hour = day02.substring(3,5);
+	if(ph != '오전' && hour != '12'){
+		hour = parseInt(hour)+12;
+	} else if(ph == '오전' && hour == '12'){
+		hour = 0;
+	}
+	var min = day02.substring(6,8);
+	if(min == '00'){
+		min = 0;
+	}
+/* 	var sec = day02.substring(9,11);
+	if(sec == '00'){
+		sec = 0;
+	} */
+	console.log(sec);
+	
+	var countDownDate = new Date(year, month, day, hour, min, 0, 0).getTime(); 
+	var x = setInterval(function() { 
+		var now = new Date().getTime(); 
+		var distance = countDownDate - now; 
+		var d = Math.floor(distance / (1000 * 60 * 60 * 24)); 
+		var h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); 
+		var m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)); 
+		var s = Math.floor((distance % (1000 * 60)) / 1000); 
+		document.getElementById("d-day").innerHTML = "마감 " + d +"일 " + h + "시간 " + m + "분 " + s + "초 남음 "; });
+});
+
 
 </script>
+
 <style>
+
+.sportsbar_p {
+	border: 1px solid #FEE9E9;
+	color: #FE9191;
+}
+
+.sportsbar_p:hover {
+	border: 1px solid #FE9191;
+}
+
+.card {
+    border: 5px solid #FEE9E9;
+    border-radius: 8px;
+	line-height: 0.5;
+}
+
+.card:hover {
+	border: 5px solid #FE9191;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.card-img-overlay {
+	border-radius: 8px;
+	background-color: rgba( 255, 255, 255, 0.8 );
+}
+
+.section_1 {
+	border-left: 5px solid #FEBABA;
+}
+
+.section_2 {
+	border-radius: 8px;
+	border: 1px solid #CBC1C1;
+}
+
+.btn {
+	border: 2px solid #FE7E7E;
+	background-color: #FE9191;
+}
 
 </style>
 </head>
 
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+<body>
 
-<section class="ftco-section ftco-no-pb ftco-no-pt ftco-program bg-light" id="programs-section">
-	<div class="row no-gutters">
-	
-		<div class="col-md-2 ftco-animate py-5 nav-link-wrap js-fullheight">
-			<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-				<a class="nav-link px-4 active" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true"><span class="mr-3 flaticon-gym"></span> 전체</a>
-				<a class="nav-link px-4" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab" aria-controls="v-pills-2" aria-selected="false"><span class="mr-3 flaticon-body"></span> 농구</a>
-				<a class="nav-link px-4" id="v-pills-3-tab" data-toggle="pill" href="#v-pills-3" role="tab" aria-controls="v-pills-3" aria-selected="false"><span class="mr-3 flaticon-woman"></span> 달리기 &amp; 산책</a>
-				<a class="nav-link px-4" id="v-pills-4-tab" data-toggle="pill" href="#v-pills-4" role="tab" aria-controls="v-pills-4" aria-selected="false"><span class="mr-3 flaticon-abs"></span> 등산</a>
-				<a class="nav-link px-4" id="v-pills-5-tab" data-toggle="pill" href="#v-pills-5" role="tab" aria-controls="v-pills-5" aria-selected="false"><span class="mr-3 flaticon-running"></span> 배드민턴</a>
-				<a class="nav-link px-4" id="v-pills-6-tab" data-toggle="pill" href="#v-pills-6" role="tab" aria-controls="v-pills-6" aria-selected="false"><span class="mr-3 flaticon-meditation"></span> 볼링</a>
-				<a class="nav-link px-4" id="v-pills-7-tab" data-toggle="pill" href="#v-pills-7" role="tab" aria-controls="v-pills-7" aria-selected="false"><span class="mr-3 flaticon-aerobic"></span> 수영</a>
-				<a class="nav-link px-4" id="v-pills-8-tab" data-toggle="pill" href="#v-pills-8" role="tab" aria-controls="v-pills-8" aria-selected="false"><span class="mr-3 flaticon-gym"></span> 자전거</a>
-			</div>
-		</div>
+<div class="container pt-3">
 
-		<div class="col-md-10 ftco-animate p-4 p-md-5 d-flex align-items-center js-fullheight">
-			<div class="tab-content pl-md-5" id="v-pills-tabContent">
+<button class="btn btn-info" style="width:100%">방 생성</button>
 
-				<div class="tab-pane fade show active py-0" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-1-tab">
+<div class="d-lg-flex justify-content-center flex-lg-row mb-3 p-2 sportsbar">
+	<div class="m-2 p-2 rounded sportsbar_p"><i class="fas fa-cloud pr-3"></i>전체</div>
+	<div class="m-2 p-2 rounded sportsbar_p"><i class="fas fa-basketball-ball pr-3"></i>농구</div>
+	<div class="m-2 p-2 rounded sportsbar_p"><i class="fas fa-running pr-3"></i>달리기 &amp; 산책</div>
+	<div class="m-2 p-2 rounded sportsbar_p"><i class="fas fa-hiking pr-3"></i>등산</div>
+	<div class="m-2 p-2 rounded sportsbar_p"><img class="pr-3" src="${pageContext.request.contextPath }/images/badminton-pink.png" width="35px">배드민턴</div>
+	<div class="m-2 p-2 rounded sportsbar_p"><i class="fas fa-bowling-ball pr-3"></i>볼링</div>
+	<div class="m-2 p-2 rounded sportsbar_p"><i class="fas fa-swimmer pr-3"></i>수영</div>
+	<div class="m-2 p-2 rounded sportsbar_p"><i class="fas fa-bicycle pr-3"></i>자전거</div>
+</div>
 
-					<%-- 카드 TEST --%>
-					<h2 class="mb-4">Fit &amp; Healthy</h2>
-					<div class="row d-flex">
-					<div class="col-md-4 d-flex ftco-animate">
-			          	<div class="blog-entry">
-			              <a href="single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
-			              </a>
-			              <div class="text float-right d-block">
-			              	<div class="d-flex align-items-center pt-2 mb-4 topp">
-			              		<div class="one mr-2">
-			              			<span class="day">04</span>
-			              		</div>
-			              		<div class="two">
-			              			<span class="yr">2019</span>
-			              			<span class="mos">april</span>
-			              		</div>
-			              	</div>
-			                <h3 class="heading"><a href="single.html">Why Lead Generation is Key for Business Growth</a></h3>
-			                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-			                <div class="d-flex align-items-center mt-4 meta">
-				                <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
-				                <p class="ml-auto mb-0">
-				                	<a href="#" class="mr-2">Admin</a>
-				                	<a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
-				                </p>
-			                </div>
-			              </div>
-			            </div>
-			          </div>
-			          
-			          <div class="col-md-4 d-flex ftco-animate">
-			          	<div class="blog-entry">
-			              <a href="single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
-			              </a>
-			              <div class="text float-right d-block">
-			              	<div class="d-flex align-items-center pt-2 mb-4 topp">
-			              		<div class="one mr-2">
-			              			<span class="day">04</span>
-			              		</div>
-			              		<div class="two">
-			              			<span class="yr">2019</span>
-			              			<span class="mos">april</span>
-			              		</div>
-			              	</div>
-			                <h3 class="heading"><a href="single.html">Why Lead Generation is Key for Business Growth</a></h3>
-			                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-			                <div class="d-flex align-items-center mt-4 meta">
-				                <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
-				                <p class="ml-auto mb-0">
-				                	<a href="#" class="mr-2">Admin</a>
-				                	<a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
-				                </p>
-			                </div>
-			              </div>
-			            </div>
-			          </div>
-			          
-			          <div class="col-md-4 d-flex ftco-animate">
-			          	<div class="blog-entry">
-			              <a href="single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
-			              </a>
-			              <div class="text float-right d-block">
-			              	<div class="d-flex align-items-center pt-2 mb-4 topp">
-			              		<div class="one mr-2">
-			              			<span class="day">04</span>
-			              		</div>
-			              		<div class="two">
-			              			<span class="yr">2019</span>
-			              			<span class="mos">april</span>
-			              		</div>
-			              	</div>
-			                <h3 class="heading"><a href="single.html">Why Lead Generation is Key for Business Growth</a></h3>
-			                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-			                <div class="d-flex align-items-center mt-4 meta">
-				                <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
-				                <p class="ml-auto mb-0">
-				                	<a href="#" class="mr-2">Admin</a>
-				                	<a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
-				                </p>
-			                </div>
-			              </div>
-			            </div>
-			          </div>
-			          
-			          <div class="col-md-4 d-flex ftco-animate">
-			          	<div class="blog-entry">
-			              <a href="single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
-			              </a>
-			              <div class="text float-right d-block">
-			              	<div class="d-flex align-items-center pt-2 mb-4 topp">
-			              		<div class="one mr-2">
-			              			<span class="day">04</span>
-			              		</div>
-			              		<div class="two">
-			              			<span class="yr">2019</span>
-			              			<span class="mos">april</span>
-			              		</div>
-			              	</div>
-			                <h3 class="heading"><a href="single.html">Why Lead Generation is Key for Business Growth</a></h3>
-			                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-			                <div class="d-flex align-items-center mt-4 meta">
-				                <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
-				                <p class="ml-auto mb-0">
-				                	<a href="#" class="mr-2">Admin</a>
-				                	<a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
-				                </p>
-			                </div>
-			              </div>
-			            </div>
-			          </div>
-			          
-			          <div class="col-md-4 d-flex ftco-animate">
-			          	<div class="blog-entry">
-			              <a href="single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
-			              </a>
-			              <div class="text float-right d-block">
-			              	<div class="d-flex align-items-center pt-2 mb-4 topp">
-			              		<div class="one mr-2">
-			              			<span class="day">04</span>
-			              		</div>
-			              		<div class="two">
-			              			<span class="yr">2019</span>
-			              			<span class="mos">april</span>
-			              		</div>
-			              	</div>
-			                <h3 class="heading"><a href="single.html">Why Lead Generation is Key for Business Growth</a></h3>
-			                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-			                <div class="d-flex align-items-center mt-4 meta">
-				                <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
-				                <p class="ml-auto mb-0">
-				                	<a href="#" class="mr-2">Admin</a>
-				                	<a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
-				                </p>
-			                </div>
-			              </div>
-			            </div>
-			          </div>
-			          
-			          <div class="col-md-4 d-flex ftco-animate">
-			          	<div class="blog-entry">
-			              <a href="single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
-			              </a>
-			              <div class="text float-right d-block">
-			              	<div class="d-flex align-items-center pt-2 mb-4 topp">
-			              		<div class="one mr-2">
-			              			<span class="day">04</span>
-			              		</div>
-			              		<div class="two">
-			              			<span class="yr">2019</span>
-			              			<span class="mos">april</span>
-			              		</div>
-			              	</div>
-			                <h3 class="heading"><a href="single.html">Why Lead Generation is Key for Business Growth</a></h3>
-			                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-			                <div class="d-flex align-items-center mt-4 meta">
-				                <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
-				                <p class="ml-auto mb-0">
-				                	<a href="#" class="mr-2">Admin</a>
-				                	<a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
-				                </p>
-			                </div>
-			              </div>
-			            </div>
-			          </div>
-			          
-			          <div class="col-md-4 d-flex ftco-animate">
-			          	<div class="blog-entry">
-			              <a href="single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
-			              </a>
-			              <div class="text float-right d-block">
-			              	<div class="d-flex align-items-center pt-2 mb-4 topp">
-			              		<div class="one mr-2">
-			              			<span class="day">04</span>
-			              		</div>
-			              		<div class="two">
-			              			<span class="yr">2019</span>
-			              			<span class="mos">april</span>
-			              		</div>
-			              	</div>
-			                <h3 class="heading"><a href="single.html">Why Lead Generation is Key for Business Growth</a></h3>
-			                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-			                <div class="d-flex align-items-center mt-4 meta">
-				                <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
-				                <p class="ml-auto mb-0">
-				                	<a href="#" class="mr-2">Admin</a>
-				                	<a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
-				                </p>
-			                </div>
-			              </div>
-			            </div>
-			          </div>
-			          
-			          <div class="col-md-4 d-flex ftco-animate">
-			          	<div class="blog-entry">
-			              <a href="single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
-			              </a>
-			              <div class="text float-right d-block">
-			              	<div class="d-flex align-items-center pt-2 mb-4 topp">
-			              		<div class="one mr-2">
-			              			<span class="day">04</span>
-			              		</div>
-			              		<div class="two">
-			              			<span class="yr">2019</span>
-			              			<span class="mos">april</span>
-			              		</div>
-			              	</div>
-			                <h3 class="heading"><a href="single.html">Why Lead Generation is Key for Business Growth</a></h3>
-			                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-			                <div class="d-flex align-items-center mt-4 meta">
-				                <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
-				                <p class="ml-auto mb-0">
-				                	<a href="#" class="mr-2">Admin</a>
-				                	<a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
-				                </p>
-			                </div>
-			              </div>
-			            </div>
-			          </div>
-			          
-			          </div>
-
-				</div>
-				
-				
-				<div class="tab-pane fade py-0" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-2-tab">
-					<span class="icon mb-3 d-block flaticon-body"></span>
-					<h2 class="mb-4">Fit &amp; Healthy</h2>
-					<table border="1" style="float:left; margin:20px;">
-						<tr height="100">
-							<td width="500">룰루 랄라</td><td>룰루</td>
-						</tr>
-					</table>
-					<table border="1"  style="float:left;margin:20px;">
-						<tr height="100">
-							<td width="500">룰루 랄라</td><td>룰루</td>
-						</tr>
-					</table>
-					<table border="1" style="float:left;margin:20px;">
-						<tr height="100">
-							<td width="500">룰루 랄라</td><td>룰루</td>
-						</tr>
-					</table>
-										<table border="1" style="float:left;margin:20px;">
-						<tr height="100">
-							<td width="500">룰루 랄라</td><td>룰루</td>
-						</tr>
-					</table>
-										<table border="1" style="float:left;margin:20px;">
-						<tr height="100">
-							<td width="500">룰루 랄라</td><td>룰루</td>
-						</tr>
-					</table>
-										<table border="1" style="float:left;margin:20px;">
-						<tr height="100">
-							<td width="500">룰루 랄라</td><td>룰루</td>
-						</tr>
-					</table>
-										<table border="1" style="float:left;margin:20px;">
-						<tr height="100">
-							<td width="500">룰루 랄라</td><td>룰루</td>
-						</tr>
-					</table>
-										<table border="1" style="float:left;margin:20px;">
-						<tr height="100">
-							<td width="500">룰루 랄라</td><td>룰루</td>
-						</tr>
-					</table>
-										<table border="1" style="float:left;margin:20px;">
-						<tr height="100">
-							<td width="500">룰루 랄라</td><td>룰루</td>
-						</tr>
-					</table>
-										<table border="1" style="float:left;margin:20px;">
-						<tr height="100">
-							<td width="500">룰루 랄라</td><td>룰루</td>
-						</tr>
-					</table>
-										<table border="1" style="float:left;margin:20px;">
-						<tr height="100">
-							<td width="500">룰루 랄라</td><td>룰루</td>
-						</tr>
-					</table>
-					
-				</div>
-				<div class="tab-pane fade py-0" id="v-pills-3" role="tabpanel" aria-labelledby="v-pills-3-tab">
-					<span class="icon mb-3 d-block flaticon-woman"></span>
-					<h2 class="mb-4">Muscle Building</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptate, quibusdam sunt iste dolores consequatur</p>
-					<p>Inventore fugit error iure nisi reiciendis fugiat illo pariatur quam sequi quod iusto facilis officiis nobis sit quis molestias asperiores rem, blanditiis! Commodi exercitationem vitae deserunt qui nihil ea, tempore et quam natus quaerat doloremque.</p>
-					<p><a href="#" class="btn btn-primary px-4 py-3">Learn More</a></p>
-					</div>
-				<div class="tab-pane fade py-0" id="v-pills-4" role="tabpanel" aria-labelledby="v-pills-4-tab">
-					<span class="icon mb-3 d-block flaticon-abs"></span>
-					<h2 class="mb-4">Bikini &amp; Body</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptate, quibusdam sunt iste dolores consequatur</p>
-					<p>Inventore fugit error iure nisi reiciendis fugiat illo pariatur quam sequi quod iusto facilis officiis nobis sit quis molestias asperiores rem, blanditiis! Commodi exercitationem vitae deserunt qui nihil ea, tempore et quam natus quaerat doloremque.</p>
-					<p><a href="#" class="btn btn-primary px-4 py-3">Learn More</a></p>
-				</div>
-				<div class="tab-pane fade py-0" id="v-pills-5" role="tabpanel" aria-labelledby="v-pills-5-tab">
-					<span class="icon mb-3 d-block flaticon-running"></span>
-					<h2 class="mb-4">Cardio Exercise</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptate, quibusdam sunt iste dolores consequatur</p>
-					<p>Inventore fugit error iure nisi reiciendis fugiat illo pariatur quam sequi quod iusto fnventore fugit error iure nisi reiciendis
-					 fugiat illo pariatur quam sequi quod iusto fnventore fugit error iure nisi reiciendis fugiat illo pariatur quam sequi quod iusto 
-					 fnventore fugit error iure nisi reiciendis fugiat illo pariatur quam sequi quod iusto fnventore fugit error iure nisi reiciendisㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ너아림나어라ㅣㅏㅣ;ㄴㅇㅁ라ㅓㄴㅁ아;리ㅓ낭ㅁㄻㄴㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-					 fugiat illo pariatur quam sequi quod iusto fnventore fugit error iure nisi reiciendis fugiat illo pariatur quam sequi quod iusto
-					  facilis officiis nobis sit quis molestias asperiores rem, blanditiis! Commodi exercitationem vitae deserunt qui nihil ea, tempor
-					  e et quam natus quaerat doloremque.</p>
-					<p><a href="#" class="btn btn-primary px-4 py-3">Learn More</a></p>
-				</div>
-				<div class="tab-pane fade py-0" id="v-pills-6" role="tabpanel" aria-labelledby="v-pills-6-tab">
-				<span class="icon mb-3 d-block flaticon-meditation"></span>
-					<h2 class="mb-4">Power Yoga</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptate, quibusdam sunt iste dolores consequatur</p>
-					<p>Inventore fugit error iure nisi reiciendis fugiat illo pariatur quam sequi quod iusto facilis officiis nobis sit quis molestias asperiores rem, blanditiis! Commodi exercitationem vitae deserunt qui nihil ea, tempore et quam natus quaerat doloremque.</p>
-					<p><a href="#" class="btn btn-primary px-4 py-3">Learn More</a></p>
-				</div>
-				<div class="tab-pane fade py-0" id="v-pills-7" role="tabpanel" aria-labelledby="v-pills-7-tab">
-					<span class="icon mb-3 d-block flaticon-aerobic"></span>
-					<h2 class="mb-4">Aerobics Program</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptate, quibusdam sunt iste dolores consequatur</p>
-					<p>Inventore fugit error iure nisi reiciendis fugiat illo pariatur quam sequi quod iusto facilis officiis nobis sit quis molestias asperiores rem, blanditiis! Commodi exercitationem vitae deserunt qui nihil ea, tempore et quam natus quaerat doloremque.</p>
-					<p><a href="#" class="btn btn-primary px-4 py-3">Learn More</a></p>
-				</div>
-				<div class="tab-pane fade py-0" id="v-pills-8" role="tabpanel" aria-labelledby="v-pills-8-tab">
-					<span class="icon mb-3 d-block flaticon-gym"></span>
-					<h2 class="mb-4">Crossfit Program</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptate, quibusdam sunt iste dolores consequatur</p>
-					<p>Inventore fugit error iure nisi reiciendis fugiat illo pariatur quam sequi quod iusto facilis officiis nobis sit quis molestias asperiores rem, blanditiis! Commodi exercitationem vitae deserunt qui nihil ea, tempore et quam natus quaerat doloremque.</p>
-					<p><a href="#" class="btn btn-primary px-4 py-3">Learn More</a></p>
-				</div>
-			</div>
+<div class="row">
+	<div class="col-xl-5 m-4">
+		<div class="card shadow" style="width:500px;">
+		  <img class="card-img-top" src="${pageContext.request.contextPath }/images/bg_1.jpg" alt="Card image">
+		  <div class="row card-img-overlay m-4">
+		  	<p><span class="badge badge-pill badge-primary">4명</span></p>
+		    <h4 class="card-title font-weight-bold pl-2">같이 달리기 하실 분!</h4>
+		  	<div class="section_1 col-8 pt-2">
+			    <p class="card-text"><i class="fas fa-running pr-2"></i>달리기(중급 이상)</p>
+			    <p class="card-text font-weight-bold"><span class="badge badge-warning mr-2">장소</span>진성 초등학교 운동장</p>
+			    <p><span class="badge badge-info mr-2">여성</span>20대~30대</p>
+			    <p class="card-text" id="d-day"></p>
+		  	</div>
+		  	<div class="section_2 col-4 text-center pt-3 shadow-sm">
+			    <p class="font-weight-bold small" id="day01">2019.12.25 (수)</p>
+			    <p class="font-weight-bold" id="day02">오후 10:30:00</p>
+			    <a href="#" class="btn btn-info">참여하기<br><span class="small">3명 남음</span></a>
+			    
+		    </div>
+		  </div>
 		</div>
 	</div>
-</section>
+	<div class="col-xl-5 m-4">
+		<div class="card shadow" style="width:500px;">
+		  <img class="card-img-top" src="${pageContext.request.contextPath }/images/bg_1.jpg" alt="Card image">
+		  <div class="row card-img-overlay m-4">
+		  	<p><span class="badge badge-pill badge-primary">4명</span></p>
+		    <h4 class="card-title font-weight-bold pl-2">같이 달리기 하실 분!</h4>
+		  	<div class="section_1 col-8 pt-2">
+			    <p class="card-text"><i class="fas fa-running pr-2"></i>달리기(중급 이상)</p>
+			    <p class="card-text font-weight-bold"><span class="badge badge-warning mr-2">장소</span>진성 초등학교 운동장</p>
+			    <p><span class="badge badge-info mr-2">여성</span>20대~30대</p>
+			    <p class="card-text" id="d-day"></p>
+		  	</div>
+		  	<div class="section_2 col-4 text-center pt-3 shadow-sm">
+			    <p class="font-weight-bold small" id="day01">2019.12.25 (수)</p>
+			    <p class="font-weight-bold" id="day02">오후 10:30:00</p>
+			    <a href="#" class="btn btn-info">참여하기<br><span class="small">3명 남음</span></a>
+			    
+		    </div>
+		  </div>
+		</div>
+	</div>
+		<div class="col-xl-5 m-4">
+		<div class="card shadow" style="width:500px;">
+		  <img class="card-img-top" src="${pageContext.request.contextPath }/images/bg_1.jpg" alt="Card image">
+		  <div class="row card-img-overlay m-4">
+		  	<p><span class="badge badge-pill badge-primary">4명</span></p>
+		    <h4 class="card-title font-weight-bold pl-2">같이 달리기 하실 분!</h4>
+		  	<div class="section_1 col-8 pt-2">
+			    <p class="card-text"><i class="fas fa-running pr-2"></i>달리기(중급 이상)</p>
+			    <p class="card-text font-weight-bold"><span class="badge badge-warning mr-2">장소</span>진성 초등학교 운동장</p>
+			    <p><span class="badge badge-info mr-2">여성</span>20대~30대</p>
+			    <p class="card-text" id="d-day"></p>
+		  	</div>
+		  	<div class="section_2 col-4 text-center pt-3 shadow-sm">
+			    <p class="font-weight-bold small" id="day01">2019.12.25 (수)</p>
+			    <p class="font-weight-bold" id="day02">오후 10:30:00</p>
+			    <a href="#" class="btn btn-info">참여하기<br><span class="small">3명 남음</span></a>
+			    
+		    </div>
+		  </div>
+		</div>
+	</div>
+	<div class="col-xl-5 m-4">
+		<div class="card shadow" style="width:500px;">
+		  <img class="card-img-top" src="${pageContext.request.contextPath }/images/bg_1.jpg" alt="Card image">
+		  <div class="row card-img-overlay m-4">
+		  	<p><span class="badge badge-pill badge-primary">4명</span></p>
+		    <h4 class="card-title font-weight-bold pl-2">같이 달리기 하실 분!</h4>
+		  	<div class="section_1 col-8 pt-2">
+			    <p class="card-text"><i class="fas fa-running pr-2"></i>달리기(중급 이상)</p>
+			    <p class="card-text font-weight-bold"><span class="badge badge-warning mr-2">장소</span>진성 초등학교 운동장</p>
+			    <p><span class="badge badge-info mr-2">여성</span>20대~30대</p>
+			    <p class="card-text" id="d-day"></p>
+		  	</div>
+		  	<div class="section_2 col-4 text-center pt-3 shadow-sm">
+			    <p class="font-weight-bold small" id="day01">2019.12.25 (수)</p>
+			    <p class="font-weight-bold" id="day02">오후 10:30:00</p>
+			    <a href="#" class="btn btn-info">참여하기<br><span class="small">3명 남음</span></a>
+			    
+		    </div>
+		  </div>
+		</div>
+	</div>	<div class="col-xl-5 m-4">
+		<div class="card shadow" style="width:500px;">
+		  <img class="card-img-top" src="${pageContext.request.contextPath }/images/bg_1.jpg" alt="Card image">
+		  <div class="row card-img-overlay m-4">
+		  	<p><span class="badge badge-pill badge-primary">4명</span></p>
+		    <h4 class="card-title font-weight-bold pl-2">같이 달리기 하실 분!</h4>
+		  	<div class="section_1 col-8 pt-2">
+			    <p class="card-text"><i class="fas fa-running pr-2"></i>달리기(중급 이상)</p>
+			    <p class="card-text font-weight-bold"><span class="badge badge-warning mr-2">장소</span>진성 초등학교 운동장</p>
+			    <p><span class="badge badge-info mr-2">여성</span>20대~30대</p>
+			    <p class="card-text" id="d-day"></p>
+		  	</div>
+		  	<div class="section_2 col-4 text-center pt-3 shadow-sm">
+			    <p class="font-weight-bold small" id="day01">2019.12.25 (수)</p>
+			    <p class="font-weight-bold" id="day02">오후 10:30:00</p>
+			    <a href="#" class="btn btn-info">참여하기<br><span class="small">3명 남음</span></a>
+			    
+		    </div>
+		  </div>
+		</div>
+	</div>
+	<div class="col-xl-5 m-4">
+		<div class="card shadow" style="width:500px;">
+		  <img class="card-img-top" src="${pageContext.request.contextPath }/images/bg_1.jpg" alt="Card image">
+		  <div class="row card-img-overlay m-4">
+		  	<p><span class="badge badge-pill badge-primary">4명</span></p>
+		    <h4 class="card-title font-weight-bold pl-2">같이 달리기 하실 분!</h4>
+		  	<div class="section_1 col-8 pt-2">
+			    <p class="card-text"><i class="fas fa-running pr-2"></i>달리기(중급 이상)</p>
+			    <p class="card-text font-weight-bold"><span class="badge badge-warning mr-2">장소</span>진성 초등학교 운동장</p>
+			    <p><span class="badge badge-info mr-2">여성</span>20대~30대</p>
+			    <p class="card-text" id="d-day"></p>
+		  	</div>
+		  	<div class="section_2 col-4 text-center pt-3 shadow-sm">
+			    <p class="font-weight-bold small" id="day01">2019.12.25 (수)</p>
+			    <p class="font-weight-bold" id="day02">오후 10:30:00</p>
+			    <a href="#" class="btn btn-info">참여하기<br><span class="small">3명 남음</span></a>
+			    
+		    </div>
+		  </div>
+		</div>
+	</div>
+		<div class="col-xl-5 m-4">
+		<div class="card shadow" style="width:500px;">
+		  <img class="card-img-top" src="${pageContext.request.contextPath }/images/bg_1.jpg" alt="Card image">
+		  <div class="row card-img-overlay m-4">
+		  	<p><span class="badge badge-pill badge-primary">4명</span></p>
+		    <h4 class="card-title font-weight-bold pl-2">같이 달리기 하실 분!</h4>
+		  	<div class="section_1 col-8 pt-2">
+			    <p class="card-text"><i class="fas fa-running pr-2"></i>달리기(중급 이상)</p>
+			    <p class="card-text font-weight-bold"><span class="badge badge-warning mr-2">장소</span>진성 초등학교 운동장</p>
+			    <p><span class="badge badge-info mr-2">여성</span>20대~30대</p>
+			    <p class="card-text" id="d-day"></p>
+		  	</div>
+		  	<div class="section_2 col-4 text-center pt-3 shadow-sm">
+			    <p class="font-weight-bold small" id="day01">2019.12.25 (수)</p>
+			    <p class="font-weight-bold" id="day02">오후 10:30:00</p>
+			    <a href="#" class="btn btn-info">참여하기<br><span class="small">3명 남음</span></a>
+			    
+		    </div>
+		  </div>
+		</div>
+	</div>
+	<div class="col-xl-5 m-4">
+		<div class="card shadow" style="width:500px;">
+		  <img class="card-img-top" src="${pageContext.request.contextPath }/images/bg_1.jpg" alt="Card image">
+		  <div class="row card-img-overlay m-4">
+		  	<p><span class="badge badge-pill badge-primary">4명</span></p>
+		    <h4 class="card-title font-weight-bold pl-2">같이 달리기 하실 분!</h4>
+		  	<div class="section_1 col-8 pt-2">
+			    <p class="card-text"><i class="fas fa-running pr-2"></i>달리기(중급 이상)</p>
+			    <p class="card-text font-weight-bold"><span class="badge badge-warning mr-2">장소</span>진성 초등학교 운동장</p>
+			    <p><span class="badge badge-info mr-2">여성</span>20대~30대</p>
+			    <p class="card-text" id="d-day"></p>
+		  	</div>
+		  	<div class="section_2 col-4 text-center pt-3 shadow-sm">
+			    <p class="font-weight-bold small" id="day01">2019.12.25 (수)</p>
+			    <p class="font-weight-bold" id="day02">오후 10:30:00</p>
+			    <a href="#" class="btn btn-info">참여하기<br><span class="small">3명 남음</span></a>
+			    
+		    </div>
+		  </div>
+		</div>
+	</div>
+		<div class="col-xl-5 m-4">
+		<div class="card shadow" style="width:500px;">
+		  <img class="card-img-top" src="${pageContext.request.contextPath }/images/bg_1.jpg" alt="Card image">
+		  <div class="row card-img-overlay m-4">
+		  	<p><span class="badge badge-pill badge-primary">4명</span></p>
+		    <h4 class="card-title font-weight-bold pl-2">같이 달리기 하실 분!</h4>
+		  	<div class="section_1 col-8 pt-2">
+			    <p class="card-text"><i class="fas fa-running pr-2"></i>달리기(중급 이상)</p>
+			    <p class="card-text font-weight-bold"><span class="badge badge-warning mr-2">장소</span>진성 초등학교 운동장</p>
+			    <p><span class="badge badge-info mr-2">여성</span>20대~30대</p>
+			    <p class="card-text" id="d-day"></p>
+		  	</div>
+		  	<div class="section_2 col-4 text-center pt-3 shadow-sm">
+			    <p class="font-weight-bold small" id="day01">2019.12.25 (수)</p>
+			    <p class="font-weight-bold" id="day02">오후 10:30:00</p>
+			    <a href="#" class="btn btn-info">참여하기<br><span class="small">3명 남음</span></a>
+			    
+		    </div>
+		  </div>
+		</div>
+	</div>
+	<div class="col-xl-5 m-4">
+		<div class="card shadow" style="width:500px;">
+		  <img class="card-img-top" src="${pageContext.request.contextPath }/images/bg_1.jpg" alt="Card image">
+		  <div class="row card-img-overlay m-4">
+		  	<p><span class="badge badge-pill badge-primary">4명</span></p>
+		    <h4 class="card-title font-weight-bold pl-2">같이 달리기 하실 분!</h4>
+		  	<div class="section_1 col-8 pt-2">
+			    <p class="card-text"><i class="fas fa-running pr-2"></i>달리기(중급 이상)</p>
+			    <p class="card-text font-weight-bold"><span class="badge badge-warning mr-2">장소</span>진성 초등학교 운동장</p>
+			    <p><span class="badge badge-info mr-2">여성</span>20대~30대</p>
+			    <p class="card-text" id="d-day"></p>
+		  	</div>
+		  	<div class="section_2 col-4 text-center pt-3 shadow-sm">
+			    <p class="font-weight-bold small" id="day01">2019.12.25 (수)</p>
+			    <p class="font-weight-bold" id="day02">오후 10:30:00</p>
+			    <a href="#" class="btn btn-info">참여하기<br><span class="small">3명 남음</span></a>
+			    
+		    </div>
+		  </div>
+		</div>
+	</div>
+</div>
 
+</div>
 
-<%--script src="${pageContext.request.contextPath }/js/jquery.min.js"></script>
-<script src="${pageContext.request.contextPath }/js/jquery-migrate-3.0.1.min.js"></script>
-<script src="${pageContext.request.contextPath }/js/popper.min.js"></script>
-<script src="${pageContext.request.contextPath }/js/bootstrap.min.js"></script>
-<script src="${pageContext.request.contextPath }/js/jquery.easing.1.3.js"></script>
-<script src="${pageContext.request.contextPath }/js/jquery.waypoints.min.js"></script>
-<script src="${pageContext.request.contextPath }/js/jquery.stellar.min.js"></script>
-<script src="${pageContext.request.contextPath }/js/owl.carousel.min.js"></script>
-<script src="${pageContext.request.contextPath }/js/jquery.magnific-popup.min.js"></script>
-<script src="${pageContext.request.contextPath }/js/aos.js"></script>
-<script src="${pageContext.request.contextPath }/js/jquery.animateNumber.min.js"></script>
-<script src="${pageContext.request.contextPath }/js/scrollax.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-<script src="${pageContext.request.contextPath }/js/google-map.js"></script>
-<script src="${pageContext.request.contextPath }/js/main.js"></script--%>
 
 </body>
 </html>
