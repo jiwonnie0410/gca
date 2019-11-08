@@ -8,7 +8,16 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-   
+    <!-- Le styles -->
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/bootstrap/bootstrap.min.css" />
+
+    <!-- DATA TABLE CSS -->
+    <link href="${pageContext.request.contextPath }/css/table.css" rel="stylesheet">
+
+    <script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery.js"></script>    
+    <script type="text/javascript" src="${pageContext.request.contextPath }/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="${pageContext.request.contextPath }/js/admin.js"></script>
 
     <style type="text/css">
       body {
@@ -16,6 +25,8 @@
       }
     </style>
         
+  	<!-- Google Fonts call. Font Used Open Sans -->
+  	<link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
 
   	<!-- DataTables Initialization -->
     <script type="text/javascript" src="${pageContext.request.contextPath }/js/datatables/jquery.dataTables.js"></script>
@@ -24,6 +35,8 @@
   			        $('#dt1').dataTable();
   			    });
 	</script>
+
+    
   </head>
   <body>
   
@@ -174,5 +187,9 @@
       </div><!-- /row -->
      </div> <!-- /container -->
     	<br>	
+
+      
       	<br>
+
+
 </body></html>
