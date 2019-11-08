@@ -46,6 +46,11 @@ button {
   text-transform: uppercase;
 }
 
+.pink{
+	border: 3px solid #FE9191;
+	border-radius: 10px;
+}
+
 </style>
 
 
@@ -100,11 +105,13 @@ button {
       </div>								<!-- end row1_2 -->
     </div> 															<!-- col-md-8 -->
     <div style="padding-top:70px;" class="col-md-4">
-      	<textarea style="padding-top:30px; resize:none; width:300px; height:400px;">hi my name is aaaaaaaaaaaaaaaaaaaaaaaaaaaaa</textarea>
-      	<textarea style="padding-top:30px; resize:none; width:300px; height:100px;">입력하세요</textarea>
+    	<div style="text-align: center;">
+      		<textarea style="background-color:#FE9191;border:3px solid #FFF;padding:10px; resize:none; width:300px; height:400px;">hi my name is aaaaaaaaaaaaaaaaaaaaaaaaaaaaa</textarea>
+      		<textarea style="padding:10px; resize:none; width:300px; height:100px;">입력하세요</textarea>
+      	</div>
     </div> 															<!-- col-md-4 -->
     <div style="padding-top:30px; text-align: center" class="col-md-12">
-      	<button>공유</button><button>목록</button><button>참가인증</button><button>참가취소</button>
+      	<button>목록</button><button>참가취소</button>
     </div>															<!-- col-md-12 -->
   </div> 									<!-- end row1 -->
 </div>										<!-- container -->
