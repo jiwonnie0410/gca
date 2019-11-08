@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>rank.jsp</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <style>
@@ -89,8 +89,9 @@ img {
 <hr>
 	<div style="text-align:center"><h1>나의 랭킹</h1></div>
 	<div style="text-align:center"><h2><img src="${pageContext.request.contextPath }/images/cycling1.jpg">둠피스트 / 2000점 / 순위권외(1000등 이하)</h2></div>
-</div>
 
+
+</div>
 
 </body>
 </html>
