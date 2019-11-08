@@ -15,7 +15,6 @@
 	<decorator name="basic-theme" page="layout.jsp">
 		<pattern>/index.jsp</pattern>
 		<pattern>/main_*</pattern>
-		<pattern>*</pattern>
 	</decorator>
 	
 	<!-- 관리자 레이아웃 
