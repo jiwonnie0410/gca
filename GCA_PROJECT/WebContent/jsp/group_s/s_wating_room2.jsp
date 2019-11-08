@@ -82,10 +82,10 @@ button {
     <div class="container" id="img_container">
   <div class="row">						<!--row1-->
     <div class="col-md-8">
-      	<button>#원화여고 운동장</button><button>#12/25</button><button>#10:30</button><button>#배드민턴</button><button>#여성(4/4)</button>
+      	<button>#원화여고 운동장</button><button>#12/25</button><button>#10:30</button><button>#배드민턴</button><button>#여성</button><button>#(4/4)</button>
       <div class="row">                       <!--row1_1-->
         <div style="text-align: center" class="col-4 col-md-6">
-        	<div style="padding-top:30px" id="over" class="row">
+        	<div style="padding-top:40px" id="over" class="row">
           		<img width="150px" height="150px" src="${pageContext.request.contextPath }/images/trainer-1.jpg" class="rounded-circle">
         	</div>
         	<div class="row">
@@ -93,7 +93,7 @@ button {
         	</div>
         </div>
         <div style="text-align: center" class="col-4 col-md-6">
-          	<div style="padding-top:30px" id="over" class="row">
+          	<div style="padding-top:40px" id="over" class="row">
           		<img width="150px" height="150px" src="${pageContext.request.contextPath }/images/trainer-2.jpg" class="rounded-circle">
         	</div>
         	<div class="row">
@@ -103,7 +103,7 @@ button {
       </div> 								<!-- end row1_1 -->
       <div class="row">						<!-- row1_2 -->
       	<div style="text-align: center" class="col-4 col-md-6">
-          	<div style="padding-top:30px" id="over" class="row">
+          	<div style="padding-top:40px" id="over" class="row">
           		<img width="150px" height="150px" src="${pageContext.request.contextPath }/images/trainer-3.jpg" class="rounded-circle">
         	</div>
         	<div class="row">
@@ -111,7 +111,7 @@ button {
         	</div>
         </div>
         <div style="text-align: center" class="col-4 col-md-6">
-          	<div style="padding-top:30px" id="over" class="row">
+          	<div style="padding-top:40px" id="over" class="row">
           		<img width="150px" height="150px" src="${pageContext.request.contextPath }/images/trainer-1.jpg" class="rounded-circle">
         	</div>
         	<div class="row">
@@ -120,11 +120,11 @@ button {
         </div>
       </div>								<!-- end row1_2 -->
     </div> 															<!-- col-md-8 -->
-    <div style="padding-top:50px;" class="col-md-4">
+    <div style="padding-top:70px;" class="col-md-4">
       	<textarea style="padding-top:30px; resize:none; width:300px; height:400px;">hi my name is aaaaaaaaaaaaaaaaaaaaaaaaaaaaa</textarea>
       	<textarea style="padding-top:30px; resize:none; width:300px; height:100px;">입력하세요</textarea>
     </div> 															<!-- col-md-4 -->
-    <div style="padding-top:30px; text-align: center" class="col-md-12">
+    <div style="padding-top:40px; text-align: center" class="col-md-12">
       	<button>공유</button><button>목록</button><button>참가인증</button><button>참가취소</button>
     </div>															<!-- col-md-12 -->
   </div> 									<!-- end row1 -->
