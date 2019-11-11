@@ -39,6 +39,7 @@
   	<link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
 	</head>
   <body>
+  <br><br>
     <div class="container">
         	<div class="col-md-4">
         			<div class="thumbnail" >
@@ -64,8 +65,6 @@
 						
         			</div>
         		</div>
-        	</div>
-        </div>
 </body>
 <script src="${pageContext.request.contextPath }/js/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath }/js/jquery-migrate-3.0.1.min.js"></script>
