@@ -41,30 +41,74 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
       plugins: [ 'dayGrid' ]
-    });
 
-    calendar.render();
+    });
+    calendar.setOption('contentHeight', 450);
+     calendar.render();
   });
+  
 
 </script>
 
 <style>
+.historyDiv {
+  position: absolute;
+  top: 80%;
+  left: 15%;
+}
+
+th {
+	text-align: center;
+}
 
 </style>
 
 
-
 <body>
-	<div style="text-align:center"><h1>활동 내역</h1></div>
-
 	
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-8">
-				<div id="calendar" class="calendar"></div>
+			<div style="text-align:center; font-size: 40px;">활동 내역</div><br>
+			<div id="calendar" class="calendar"></div>
 		</div>
 		<div class="col-md-4">
-			sds
+		  <div class="historyDiv">
+			<table>
+				<thead>
+					<tr>
+						<td colspan="2" style="text-align:center;"><p></p></td>
+					</tr>
+				</thead>
+				
+				<tbody>
+					<tr>
+						<th>순서</th>
+						<th>내용</th>
+					</tr>
+					<tr>
+						<td width="50">1</td>
+						<td>
+							일시: 11/05 18:00<br>
+							장소: 대구 228공원<br>
+							디테일: 배드민턴(초급이상)<br>
+							성공여부: 성공
+						</td>
+					</tr>
+					
+					<tr>
+						<td>2</td>
+						<td>
+							일시: 11/05 18:00<br>
+							장소: 대구 228공원<br>
+							디테일: 배드민턴(초급이상)<br>
+							성공여부: 실패
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<br>
+		  </div>
 		</div>
 	</div>
 </div>

@@ -6331,7 +6331,8 @@ Docs & License: https://fullcalendar.io/
         // -----------------------------------------------------------------------------------------------------------------
         CalendarComponent.prototype.freezeHeight = function () {
             applyStyle(this.el, {
-                height: this.el.getBoundingClientRect().height,
+                	
+               height: this.el.getBoundingClientRect().height,
                 overflow: 'hidden'
             });
         };
@@ -6343,6 +6344,10 @@ Docs & License: https://fullcalendar.io/
         };
         return CalendarComponent;
     }(Component));
+    
+
+        
+        
     // Title and Date Formatting
     // -----------------------------------------------------------------------------------------------------------------
     // Computes what the title at the top of the calendar should be for this view
