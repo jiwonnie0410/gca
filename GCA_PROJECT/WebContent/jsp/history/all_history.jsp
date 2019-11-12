@@ -52,9 +52,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <style>
 .historyDiv {
-  position: absolute;
-  top: 25%;
-  left: 15%;
+} 
+
+.title {
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+	height: 40px;
 }
 
 th {
@@ -65,54 +69,72 @@ th {
 
 
 <body>
-	
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-8">
-			<div style="text-align:center; font-size: 40px;">활동 내역</div><br>
-			<div id="calendar" class="calendar"></div>
-		</div>
-		<div class="col-md-4">
-		  <div class="historyDiv">
-			<table>
-				<thead>
-					<tr>
-						<td colspan="2" style="text-align:center;"><p></p></td>
-					</tr>
-				</thead>
+
+
+<div class="historyDiv">
+  <br>
+  <!-- Nav tabs 캘린더/전체보기 버튼 -->
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#calendarDiv">캘린더</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#allMenu">전체보기</a>
+    </li>
+    
+
+  </ul>
+
+  <!-- Tab panes 캘린더/전체보기 안의 내용 넣는곳 -->
+  <div class="tab-content">
+  	<!-- 캘린더 -->
+    <div id="calendarDiv" class="container tab-pane active"><br>
+      		<div id="calendar" class="calendar"></div>
+    </div>
+    <!-- 전체히스토리 테이블 -->
+    <div id="allMenu" class="container tab-pane fade"><br>
+		<table class="historyTable">
+			<thead>
+				<tr>
+					<td colspan="2" style="text-align:center;"><p></p></td>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr>
+					<th>순서</th>
+					<th>내용</th>
+				</tr>
+				<tr>
+					<td width="50">1</td>
+					<td>
+						일시: 11/05 18:00<br>
+						장소: 대구 228공원<br>
+						디테일: 배드민턴(초급이상)<br>
+						성공여부: 성공
+					</td>
+				</tr>
 				
-				<tbody>
-					<tr>
-						<th>순서</th>
-						<th>내용</th>
-					</tr>
-					<tr>
-						<td width="50">1</td>
-						<td>
-							일시: 11/05 18:00<br>
-							장소: 대구 228공원<br>
-							디테일: 배드민턴(초급이상)<br>
-							성공여부: 성공
-						</td>
-					</tr>
-					
-					<tr>
-						<td>2</td>
-						<td>
-							일시: 11/05 18:00<br>
-							장소: 대구 228공원<br>
-							디테일: 배드민턴(초급이상)<br>
-							성공여부: 실패
-						</td>
-					</tr>
-				</tbody>
-			</table>
-			<br>
-		  </div>
-		</div>
-	</div>
+				<tr>
+					<td>2</td>
+					<td>
+						일시: 11/05 18:00<br>
+						장소: 대구 228공원<br>
+						디테일: 배드민턴(초급이상)<br>
+						성공여부: 실패
+					</td>
+				</tr>
+			</tbody>
+		</table>    
+    
+    </div>
+  </div>
 </div>
 
-    
+
+
+
+
+
 </body>
 </html>
