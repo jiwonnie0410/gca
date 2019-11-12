@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	    }
 	  });
 	  
-	  <!-- 캘린더 날짜부분의 높이 이거보다 작으면 스크롤생김 -->
+	 // 캘린더 날짜부분의 높이 이거보다 작으면 스크롤생김
 	  calendar.setOption('contentHeight', 450);
 	  calendar.render();
 	});
