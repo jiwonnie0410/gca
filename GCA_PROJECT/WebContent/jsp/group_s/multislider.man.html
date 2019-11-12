@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--
+Copyright Armin Junge
+-->
+<html>
+   <head>
+      <title>Multi Range Slider Demo</title>
+      <meta charset="UTF-8">
+      <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" integrity="sha384-/Ayp+mRNZjWzcpWvoDvKSHShOLWNo8Xvhjt1jsuzrSlEUnuydeBTHeA13ApkKvSP" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+      <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js" integrity="sha384-u7i0wHEdsFrw92D1Z0sk2r6kiOGnZJhnawPUT0he8TRKfD4/XMEsj22l/cHFXO3v" crossorigin="anonymous"></script>
+      <script src="../bin/jqm-multislider.min.js"></script>
+      <script type="text/javascript">
+         $(function(){
+            let slider = $('#multi')
+            $('#add').click(function(){
+               slider.multislider('increase')
+            })
+            $('#sub').click(function(){
+               slider.multislider('decrease')
+            })
+         })
+      </script>
+      <style>
+      body, {min-height: 100vh;background-image: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%);}
+      .container { margin: 150px auto; }
+      p,h1 { text-align: center; }
+   </style>
+   </head>
+   <body>
+      <div id="jquery-script-menu">
+<div class="jquery-script-center">
+<ul>
+<li><a href="https://www.jqueryscript.net/form/Multi-Slider-jQuery-Mobile.html">Download This Plugin</a></li>
+<li><a href="https://www.jqueryscript.net/">Back To jQueryScript.Net</a></li>
+</ul>
+<div class="jquery-script-ads"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div class="jquery-script-clear"></div>
+</div>
+</div>
+      <div class="container">
+         <h1>Multi Range Slider Demo</h1>
+      <p class="controls"><a id="add" href="#" class="ui-btn ui-btn-inline ui-corner-all ui-btn-icon-notext ui-icon-plus"></a>
+      <a id="sub" href="#" class="ui-btn ui-btn-inline ui-corner-all ui-btn-icon-notext ui-icon-minus"></a></p>
+      <div id="multi" data-role="multislider" min="0" max="100" step="1" data-show-value="true">
+         <input type="range">
+         <input type="range">
+         <input type="range">
+      </div>
+   </div>
+   <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+   </body>
+</html>
