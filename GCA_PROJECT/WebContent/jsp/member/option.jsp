@@ -12,8 +12,8 @@
 <!-- range slider JS -->
 <script>
 	$(function() {
-		var slider = document.getElementById("myRange");
-		var output = document.getElementById("demo");
+		var slider = document.getElementById("myRange"); 
+		var output = document.getElementById("checkRange");
 		output.innerHTML = slider.value;
 		
 		slider.oninput = function() {
@@ -24,19 +24,34 @@
 
 	
 <style>
-.title {
- text-align: center;
- font-size: 50px;
- font-weight: bold;
+.optionDiv {
+	padding: 15px;
 }
 
+.title {
+	text-align: center;
+	font-size: 50px;
+	font-weight: bold;
+}
+
+
 thead {
-	font-size: 40px;
+	font-size: 50px;
 	font-weight: bold;
 }
 
 td {
-	font-size: 40px;
+	font-size: 50px;
+	padding: 20px;
+}
+
+button {
+	width: 200px;
+	height: 100px;
+	font-size: 50px;
+	font-weight: bold;
+	background: #FE9191;
+	border-radius: 30px;
 }
 
 
@@ -45,8 +60,11 @@ td {
 .switch {
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 34px;
+  width: 100px;
+  height: 50px;
+  float: right;
+  margin: 0 20px 0 0;
+  
 }
 
 .switch input { 
@@ -70,11 +88,11 @@ td {
 .slider:before {
   position: absolute;
   content: "";
-  height: 26px;
-  width: 26px;
+  height: 50px;
+  width: 50px;
   left: 4px;
-  bottom: 4px;
   background-color: white;
+  box-shadow: 3px 3px 0px #0000004a;
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -88,9 +106,9 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
+  -webkit-transform: translateX(49px);
   -ms-transform: translateX(26px);
-  transform: translateX(26px);
+  transform: translateX(46px);
 }
 
 /* Rounded sliders */
@@ -111,9 +129,9 @@ input:checked + .slider:before {
 .rangeSlider {
   -webkit-appearance: none;
   width: 100%;
-  height: 15px;
+  height: 30px;
   border-radius: 5px;
-  background: #d3d3d3; <!--슬라이더 막대 색상 -->
+  background: #cccccca3; 
   outline: none;
   opacity: 0.7;
   -webkit-transition: .2s;
@@ -127,8 +145,8 @@ input:checked + .slider:before {
 .rangeSlider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 25px;
-  height: 25px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background: #FE9191; <!--슬라이더 색상 -->
   cursor: pointer;
@@ -142,13 +160,16 @@ input:checked + .slider:before {
   cursor: pointer;
 }
 
+
 </style>	
+
+	
 </head>
 
 <body>
 
 <div class="optionDiv">
-  <div class="title">환경설정</div>
+  <div class="title" style="height: 100px;">환경설정</div>
   <hr>
 	<table class="alarmTable">
 		<thead>
@@ -158,7 +179,16 @@ input:checked + .slider:before {
 		</thead>
 		<tbody>
 			<tr>
-				<td>알람1</td>
+				<td width="1050">반짝 풀방시 알람</td>
+				<td width="150">
+					<label class="switch">
+					  <input type="checkbox" checked>
+					  <span class="slider round"></span>
+					</label>
+				</td>
+			</tr>
+			<tr>
+				<td>범위내 등록된 반짝 알람</td>
 				<td>
 					<label class="switch">
 					  <input type="checkbox" checked>
@@ -167,7 +197,7 @@ input:checked + .slider:before {
 				</td>
 			</tr>
 			<tr>
-				<td>알람2</td>
+				<td>범위내 등록된 용병 알람</td>
 				<td>
 					<label class="switch">
 					  <input type="checkbox" checked>
@@ -175,29 +205,42 @@ input:checked + .slider:before {
 					</label>
 				</td>
 			</tr>
+			<tr>
+				<td>범위내 등록된 동아리매치 알람</td>
+				<td>
+					<label class="switch">
+					  <input type="checkbox" checked>
+					  <span class="slider round"></span>
+					</label>
+				</td>
+			</tr>
+			
+			
 		</tbody>
 	</table>
 	<br>
 	<table class="rangeTable">
 		<thead>
 			<tr>
-				<td>범위설정</td>
+				<td>범위설정 </td>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<td>반경범위</td>
-				<td>
+				<td colspan="2">
 					<div class="slidecontainer">
-					  <input type="range" min="1" max="10" value="5" class="rangeSlider" id="myRange">
+					  <input type="range" min="1" max="15" value="5" class="rangeSlider" id="myRange">
 					</div>
 				</td>
 			</tr>
+			<tr>
+				<td width="800">　　　반경범위: <span id="checkRange"></span>km</td>
+				<td width="400"><button>적용</button></td>
+			</tr>
 		</tbody>
 	</table>
-	<h1><p>범위: <span id="demo"></span>km</p></h1>
-	
 </div>
+
 
 </body>
 </html>
