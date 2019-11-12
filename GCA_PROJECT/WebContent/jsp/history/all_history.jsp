@@ -9,11 +9,14 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	
-<!-- 달력(fullcalendar) 디폴트 css, js파일 -->
-    <link href='${pageContext.request.contextPath }/fullcalendar/core/main.css' rel='stylesheet' />
-    <link href='${pageContext.request.contextPath }/fullcalendar/daygrid/main.css' rel='stylesheet' />
-    <script src='${pageContext.request.contextPath }/fullcalendar/core/main.js'></script>
-    <script src='${pageContext.request.contextPath }/fullcalendar/daygrid/main.js'></script>
+<!-- 달력(fullcalendar) css/js파일 -->
+<link href='${pageContext.request.contextPath }/fullcalendar/core/main.css' rel='stylesheet' />
+<link href='${pageContext.request.contextPath }/fullcalendar/daygrid/main.css' rel='stylesheet'/>
+
+<script src='${pageContext.request.contextPath }/fullcalendar/core/main.js'></script>
+<script src='${pageContext.request.contextPath }/fullcalendar/daygrid/main.js'></script>
+<script src='${pageContext.request.contextPath }/fullcalendar/interaction/main.js'></script>
+    
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Latest compiled and minified CSS -->
@@ -27,28 +30,42 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    
-  
-    
-</head>
+ 
+ 
+ <!-- 달력 JS 옵션 -->
 
-
-<!-- 달력디폴트 JS -->
 <script>
 
 document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendar');
+	  var calendarEl = document.getElementById('calendar');
 
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-      plugins: [ 'dayGrid' ]
-
-    });
-     calendar.setOption('contentHeight', 450);
-     calendar.render();
-  });
-  
+	  var calendar = new FullCalendar.Calendar(calendarEl, {
+	    plugins: [ 'interaction', 'dayGrid'], //interaction: 일정 추가등의 이벤트용;  dayGrid:달력 달별로 보기기능
+/* 	    header: {
+	        left: 'title',
+	        center: 'prev,next today',
+	        right: 'dayGridMonth'
+	      }, */
+	    
+	    editable: true, //일정 드래그 등 하여 수정가능
+	    selectable: true, // 날짜클릭하여 이벤트 추가 가능
+	    
+	    dateClick: function(info) {
+	      alert('clicked ' + info.dateStr);
+	    },
+	    select: function(info) {
+	      alert('selected ' + info.startStr + ' to ' + info.endStr);
+	    }
+	  });
+	  
+	  <!-- 캘린더 날짜부분의 높이 이거보다 작으면 스크롤생김 -->
+	  calendar.setOption('contentHeight', 450);
+	  calendar.render();
+	});
 
 </script>
+ 
+    
 
 <style>
 .historyDiv {
@@ -66,6 +83,8 @@ th {
 }
 
 </style>
+
+</head>
 
 
 <body>
@@ -130,10 +149,6 @@ th {
     </div>
   </div>
 </div>
-
-
-
-
 
 
 </body>
