@@ -15,67 +15,92 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script src="${pageContext.request.contextPath }/css/menubar.css"></script>
 	
 </head>
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top" id="ftco-navbar">
-	    <div class="container">
-	      <a class="navbar-brand" href="index.html"> 운동하자 </a>
-	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="oi oi-menu"></span> Menu
-	      </button>
-
-	      <!-- 상단 메뉴바 -->
-	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav nav ml-auto">
-	        	<li class="nav-item dropdown mr-5">
-              		<a class="nav-link active" data-toggle="dropdown" href="#"> 활동 이력 </a>
-	        			<div class="dropdown-menu">
-                			<a class="dropdown-item" href="#"> 활동 히스토리 </a>
-                			<a class="dropdown-item" href="#"> 챌린지 히스토리 </a>
-                			<a class="dropdown-item" href="#"> 점수 히스토리 </a>
-            			</div>
-            	</li>
-
-            	<li class="nav-item dropdown mr-5">
-              		<a class="nav-link active" data-toggle="dropdown" href="#"> 반짝 </a>
-	        			<div class="dropdown-menu">
-                			<a class="dropdown-item" href="#"> 진행 중 반짝 </a>
-                			<a class="dropdown-item" href="#"> 마감 반짝 </a>
-            			</div>
-            	</li>
-
-            	<li class="nav-item dropdown mr-5">
-              		<a class="nav-link active" data-toggle="dropdown" href="#"> 동호회 매치 </a>
-	        			<div class="dropdown-menu">
-                			<a class="dropdown-item" href="#"> 진행 중 매치 </a>
-                			<a class="dropdown-item" href="#"> 동호회 홍보 </a>
-                			<a class="dropdown-item" href="#"> 용병 구함 </a>
-                			<a class="dropdown-item" href="#"> 마감 매치 </a>
-            			</div>
-            	</li>
-
-            	<li class="nav-item dropdown mr-5">
-              		<a class="nav-link active" data-toggle="dropdown" href="#"> 챌린지 및 랭킹 </a>
-	        			<div class="dropdown-menu">
-                			<a class="dropdown-item" href="#"> 챌린지 </a>
-                			<a class="dropdown-item" href="#"> 랭킹 </a>
-            			</div>
-            	</li>
-
-            	<li class="nav-item dropdown mr-5">
-              		<a class="nav-link active" data-toggle="dropdown" href="#"> 문의 게시판 </a>
-	        			<div class="dropdown-menu">
-                			<a class="dropdown-item" href="#"> 문의 게시판 </a>
-            			</div>
-            	</li>
-            </ul> 
-	      </div>
-	    </div>
-	  </nav>
+<body>
+	<div class="topnav" id="myTopnav">
+	<a href="#home" class="active"><font size="5"><b> 운동하자 </b></font></a>
+  
+  <div class="dropdown history">
+    <button class="dropbtn"> 히스토리 </button>
+    <div class="dropdown-content">
+      <a href="#"> 활동 히스토리 </a>
+      <a href="#"> 챌린지 히스토리 </a>
+      <a href="#"> 점수 히스토리 </a>
+    </div>
+  </div>
+  
+  <div class="dropdown sgroup">
+    <button class="dropbtn"> 반짝 </button>
+    <div class="dropdown-content">
+      <a href="#"> 진행 중 반짝 </a>
+      <a href="#"> 마감 반짝 </a>
+    </div>
+  </div>
+  
+  <div class="dropdown bgroup">
+    <button class="dropbtn"> 동호회 매치 </button>
+    <div class="dropdown-content">
+      <a href="#"> 진행 중 매치 </a>
+      <a href="#"> 동호회 홍보 </a>
+      <a href="#"> 용병 구함 </a>
+      <a href="#"> 마감 매치 </a>
+    </div>
+  </div>
+  
+  <div class="dropdown challenge">
+    <button class="dropbtn"> 챌린지 및 랭킹 </button>
+    <div class="dropdown-content">
+      <a href="#"> 챌린지 </a>
+      <a href="#"> 랭킹 </a>
+    </div>
+  </div>
+  
+  <div class="dropdown">
+    <button class="dropbtn"> 문의 게시판 </button>
+  </div>
+  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
 
 	  <!-- 각 페이지 들어갈 부분 -->
+	    <h2>Responsive Topnav with Dropdown</h2>
+  <p>Resize the browser window to see how it works.</p>
+  <p>Hover over the dropdown button to open the dropdown menu.</p>  <h2>Responsive Topnav with Dropdown</h2>
+  <p>Resize the browser window to see how it works.</p>
+  <p>Hover over the dropdown button to open the dropdown menu.</p>  <h2>Responsive Topnav with Dropdown</h2>
+  <p>Resize the browser window to see how it works.</p>
+  <p>Hover over the dropdown button to open the dropdown menu.</p>  <h2>Responsive Topnav with Dropdown</h2>
+  <p>Resize the browser window to see how it works.</p>
+  <p>Hover over the dropdown button to open the dropdown menu.</p>  <h2>Responsive Topnav with Dropdown</h2>
+  <p>Resize the browser window to see how it works.</p>
+  <p>Hover over the dropdown button to open the dropdown menu.</p>  <h2>Responsive Topnav with Dropdown</h2>
+  <p>Resize the browser window to see how it works.</p>
+  <p>Hover over the dropdown button to open the dropdown menu.</p>  <h2>Responsive Topnav with Dropdown</h2>
+  <p>Resize the browser window to see how it works.</p>
+  <p>Hover over the dropdown button to open the dropdown menu.</p>  <h2>Responsive Topnav with Dropdown</h2>
+  <p>Resize the browser window to see how it works.</p>
+  <p>Hover over the dropdown button to open the dropdown menu.</p>  <h2>Responsive Topnav with Dropdown</h2>
+  <p>Resize the browser window to see how it works.</p>
+  <p>Hover over the dropdown button to open the dropdown menu.</p>  <h2>Responsive Topnav with Dropdown</h2>
+  <p>Resize the browser window to see how it works.</p>
+  <p>Hover over the dropdown button to open the dropdown menu.</p>  <h2>Responsive Topnav with Dropdown</h2>
+  <p>Resize the browser window to see how it works.</p>
+  <p>Hover over the dropdown button to open the dropdown menu.</p>  <h2>Responsive Topnav with Dropdown</h2>
+  <p>Resize the browser window to see how it works.</p>
+  <p>Hover over the dropdown button to open the dropdown menu.</p>  <h2>Responsive Topnav with Dropdown</h2>
+  <p>Resize the browser window to see how it works.</p>
+  <p>Hover over the dropdown button to open the dropdown menu.</p>  <h2>Responsive Topnav with Dropdown</h2>
+  <p>Resize the browser window to see how it works.</p>
+  <p>Hover over the dropdown button to open the dropdown menu.</p>  <h2>Responsive Topnav with Dropdown</h2>
+  <p>Resize the browser window to see how it works.</p>
+  <p>Hover over the dropdown button to open the dropdown menu.</p>  <h2>Responsive Topnav with Dropdown</h2>
+  <p>Resize the browser window to see how it works.</p>
+  <p>Hover over the dropdown button to open the dropdown menu.</p>  <h2>Responsive Topnav with Dropdown</h2>
+  <p>Resize the browser window to see how it works.</p>
+  <p>Hover over the dropdown button to open the dropdown menu.</p>  <h2>Responsive Topnav with Dropdown</h2>
+  <p>Resize the browser window to see how it works.</p>
+  <p>Hover over the dropdown button to open the dropdown menu.</p>
 	  <decorator:body/>
 
 
