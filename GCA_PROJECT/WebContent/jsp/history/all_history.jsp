@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
       plugins: [ 'dayGrid' ]
 
     });
-    calendar.setOption('contentHeight', 450);
+     calendar.setOption('contentHeight', 450);
      calendar.render();
   });
   
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <style>
 .historyDiv {
   position: absolute;
-  top: 80%;
+  top: 25%;
   left: 15%;
 }
 
