@@ -16,6 +16,19 @@
 <script src='${pageContext.request.contextPath }/fullcalendar/core/main.js'></script>
 <script src='${pageContext.request.contextPath }/fullcalendar/daygrid/main.js'></script>
 <script src='${pageContext.request.contextPath }/fullcalendar/interaction/main.js'></script>
+<script src='${pageContext.request.contextPath }/fullcalendar/core/locales/ko.js'></script>
+
+
+<script src='${pageContext.request.contextPath }/js/surim/all_history.js'></script>
+
+
+<!-- 모달 링크용 modal -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,42 +44,6 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
  
- 
- <!-- 달력 JS 옵션 -->
-
-<script>
-
-document.addEventListener('DOMContentLoaded', function() {
-	  var calendarEl = document.getElementById('calendar');
-
-	  var calendar = new FullCalendar.Calendar(calendarEl, {
-	    plugins: [ 'interaction', 'dayGrid'], //interaction: 일정 추가등의 이벤트용;  dayGrid:달력 달별로 보기기능
-/* 	    header: {
-	        left: 'title',
-	        center: 'prev,next today',
-	        right: 'dayGridMonth'
-	      }, */
-	    
-	    editable: true, //일정 드래그 등 하여 수정가능
-	    selectable: true, // 날짜클릭하여 이벤트 추가 가능
-	    
-	    dateClick: function(info) {
-	      alert('clicked ' + info.dateStr);
-	    },
-	    select: function(info) {
-	      alert('selected ' + info.startStr + ' to ' + info.endStr);
-	    }
-	  });
-	  
-	 // 캘린더 날짜부분의 높이 이거보다 작으면 스크롤생김
-	  calendar.setOption('contentHeight', 450);
-	  calendar.render();
-	});
-
-</script>
- 
-    
-
 <style>
 .historyDiv {
 } 
@@ -89,19 +66,39 @@ th {
 
 <body>
 
+<!-- The Modal 모달 div -->
+<div id="eventModal" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">이벤트 모달</h4>
+				<button type="button" class="close" data-dismiss="modal">×</button>
+			</div>
+			<div id="modal-body" class="modal-body">
+				<p>날짜: 434343일</p>
+				<p>종목: 자전거</p>
+				<p>상태: 반짝</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary"
+					data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+
 
 <div class="historyDiv">
   <br>
   <!-- Nav tabs 캘린더/전체보기 버튼 -->
   <ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link active" data-toggle="tab" href="#calendarDiv">캘린더</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#allMenu">전체보기</a>
-    </li>
-    
-
+	    <li class="nav-item">
+	      <a class="nav-link active" data-toggle="tab" href="#calendarDiv">캘린더</a>
+	    </li>
+	    <li class="nav-item">
+	      <a class="nav-link" data-toggle="tab" href="#allMenu">전체보기</a>
+	    </li>
   </ul>
 
   <!-- Tab panes 캘린더/전체보기 안의 내용 넣는곳 -->

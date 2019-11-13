@@ -233,7 +233,7 @@
 	<script src="${pageContext.request.contextPath }/js/main.js"></script>
 
 	<!-- 참가버튼 클릭시 모달뜨게함 -->
-	<script src="${pageContext.request.contextPath }/js/challenge.js"></script>
+	<script src="${pageContext.request.contextPath }/js/surim/challenge.js"></script>
 
 
 </body>
