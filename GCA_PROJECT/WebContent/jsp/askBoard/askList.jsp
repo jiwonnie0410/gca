@@ -63,8 +63,6 @@
 							<th ><center>#</center></th>
 							<th ><center>ID</center></th>
 							<th ><center>Title</center></th>
-							<th><center>내용</center></th>
-							<th ><center>작성일</center></th>
 					 </tr>
 			       </thead>	
 			      <%--  <tbody>		
@@ -82,8 +80,6 @@
                                     <td align="center">1</td>
                                     <td align="center">진뇽</td>
                                     <td class="autocut" >진뇽이다</td>
-                                    <td class="autocut">진뇽이는 잠이 온다.배가 고프다.점심 뭐먹지?????????????????????????</td>
-                                    <td align="center">2019.01.01</td>
                                 </tr>
                 </table>
                 </div>
@@ -97,15 +93,10 @@
     
       	<!-- Modal content-->
       	<div class="modal-content">
-	        <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal">&times;</button>
-	        </div>
-        
         <div class="modal-body">
-          
 			<div class="panel-group">
 			<div class="panel panel-success" style="margin-top: 10px;">
-				<div class="panel-heading">문의</div>
+				<div class="panel-heading">문의   <button type="button" class="close" data-dismiss="modal">&times;</button></div>
 				<div class="panel-body">
 					<%-- form --%>
 					<form class="form-horizontal" role="form" action="${review_write}" method="post">
@@ -125,7 +116,7 @@
 						<div class="form-group">
 							<label class="control-label col-sm-2" for="pwd">내용:</label>
 							<div class="col-sm-10">
-								 <textarea name="content" id="content" rows="15" cols="50">${boardView.content}</textarea>
+								 <textarea name="content" id="content" rows="10" cols="40">${boardView.content}</textarea>
 							</div>
 						</div>
 				
