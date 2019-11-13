@@ -101,11 +101,12 @@
 				if (confirmStatus) {
 					
 					alert("신고 처리 되었습니다.");
-					console.log("삭제했을때 처리할 곳");
-					//이 후 모달창 두개 다 닫기 추가하기
+					console.log("신고했을때 처리할 곳");
+					
+					$('#profile').modal('hide'); //프로필 모달창 까지 닫기
 
 				} else {
-					console.log("삭제취소함");
+					console.log("신고취소함");
 				}
 
 			});
@@ -120,7 +121,8 @@
 					
 					alert("강퇴 완료.");
 					console.log("강퇴했을때 처리할 곳");
-					//이 후 모달창 닫기 추가하기
+					
+					$('#profile').modal('hide'); //프로필 모달창 닫기
 
 				} else {
 					console.log("강퇴취소함");
@@ -139,7 +141,7 @@
     
 	<!-- 방제 -->
     	<div style="background-color: #FE9191; text-align: left; padding-left:20px; color: #fff;"> 
-      		방제목<span style="padding-left:78%"><button data-toggle="modal" data-target="#room-info" style="background-color:#FFC0C0;" class="button-general">방 정보</button></span>
+      		10/28 원화여고운동장 14:30<span style="padding-left:78%"><button data-toggle="modal" data-target="#room-info" style="background-color:#FFC0C0;" class="button-general">방 정보</button></span>
       		
     	</div>
     	
@@ -252,7 +254,7 @@
 					시간<br />
 					배드민턴<br />
 					여성<br />
-					4명중 3명 참가<br /> <!-- 0명중 0명참가/반짝 대기 -->
+					4명중 3명 참가<br /> <!-- 0명중 0명참가/반짝 대기?인원꽉참? -->
 				</div>
         
 <!-- Modal footer -->
