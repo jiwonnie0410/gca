@@ -52,6 +52,8 @@ button {
 	font-weight: bold;
 	background: #FE9191;
 	border-radius: 30px;
+	color: white;
+	border: none;
 }
 
 
@@ -92,7 +94,7 @@ button {
   width: 50px;
   left: 4px;
   background-color: white;
-  box-shadow: 3px 3px 0px #0000004a;
+  box-shadow: 3px 3px 10px 0px #0000004a;
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -148,7 +150,7 @@ input:checked + .slider:before {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: #FE9191; <!--슬라이더 색상 -->
+  background: #FE9191; <!--슬라이더  동그라미 색상 -->
   cursor: pointer;
 }
 
