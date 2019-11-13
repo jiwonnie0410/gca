@@ -43,7 +43,7 @@
 			
 				<div align="center" style="padding-right:3%;padding-left:3%;">
 				 <div align="right"> 
-					<button class="btn btn-primary px-4 py-3" type="button" data-toggle="modal" >Write</button><!-- data-target="#myModal" -->
+					<button class="btn btn-primary px-4 py-3" type="button" onclick="location.href='addEdit.jsp' ">Write</button><!-- data-target="#myModal" -->
 				</div>
 				<br>
 				<div class=”table-responsive“>
@@ -53,8 +53,6 @@
 							<th ><center>#</center></th>
 							<th ><center>ID</center></th>
 							<th ><center>Title</center></th>
-							<th><center>내용</center></th>
-							<th ><center>작성일</center></th>
 					 </tr>
 			       </thead>	
 			      <%--  <tbody>		
@@ -72,8 +70,6 @@
                                     <td align="center">1</td>
                                     <td align="center">진뇽</td>
                                     <td class="autocut" >진뇽이다</td>
-                                    <td class="autocut">진뇽이는 잠이 온다.배가 고프다.점심 뭐먹지?????????????????????????</td>
-                                    <td align="center">2019.01.01</td>
                                 </tr>
                 </table>
                 </div>
