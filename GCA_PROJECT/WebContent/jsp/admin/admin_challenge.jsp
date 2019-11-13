@@ -130,8 +130,12 @@
 		<div id="content-wrapper">
 			<div class="container-fluid">
 			
+			<div class="row">
+			<div class="col-md-1"></div>
+			<div class="col-md-10">
+			
 			<div style="padding-top:100px; text-align:center; width:1300px;" align="center">
-				<font size="4"><b> 챌eddd린지 </b></font>
+				<font size="4"><b> 현재 진행 중인 챌린지 </b></font>
 				<table id="example" class="table table-bordered table-hover" style="width:100%">
 			        <thead>
 			            <tr>
@@ -161,6 +165,8 @@
 			    </table>
 			</div>
 			</div>
+		</div>
+		</div>
 		</div>
 		
 	</div>
