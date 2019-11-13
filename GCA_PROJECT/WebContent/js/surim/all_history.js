@@ -43,6 +43,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	    	var eventDate = info.event.start;
 	    	$("#eventModal").modal();
 	    	
+	    	//var modal = $('eventModal'),
+	    	//modalContent = modal.find('.modal-body');
+	    	
 	    }//
 	  });
 	  
