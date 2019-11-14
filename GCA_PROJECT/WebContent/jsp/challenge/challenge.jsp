@@ -44,6 +44,8 @@
 	href="${pageContext.request.contextPath }/css/flaticon.css"> 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/css/icomoon.css">
+	
+<!-- 개인설정 -->	
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/css/surim/joinButton.css"> 
 <link rel="stylesheet"

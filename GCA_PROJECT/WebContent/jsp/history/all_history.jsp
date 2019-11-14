@@ -59,6 +59,17 @@ th {
 	text-align: center;
 }
 
+button {
+ background : #FE9191;
+ border : none;
+ border-radius: 6px;
+ height : 30px;
+ color : white;
+ font-size : large;
+ 
+}
+
+
 </style>
 
 </head>
@@ -66,6 +77,7 @@ th {
 
 <body>
 
+11
 <!-- The Modal 모달 div -->
 <div id="eventModal" class="modal fade" role="dialog">
 	<div class="modal-dialog">
@@ -76,13 +88,12 @@ th {
 				<button type="button" class="close" data-dismiss="modal">×</button>
 			</div>
 			<div id="modal-body" class="modal-body">
-				<p>날짜: 434343일</p>
+				<p>날짜: <span id="modalDate"></span></p> 
 				<p>종목: 자전거</p>
 				<p>상태: 반짝</p>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-primary"
-					data-dismiss="modal">Close</button>
+				<button type="button" data-dismiss="modal">Close</button>
 			</div>
 		</div>
 	</div>
