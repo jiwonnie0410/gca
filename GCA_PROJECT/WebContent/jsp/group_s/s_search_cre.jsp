@@ -110,6 +110,10 @@ li:hover {
 	border-radius: 5px;
 }
 
+#sg_age .noUi-handle {
+	padding: 0 17px;
+}
+
 
 /* 라디오 버튼 */
 
@@ -266,9 +270,9 @@ li:hover {
 		</label>
 	</div>
 
-	<span class="example-val" id="skip-value-lower"></span>
-	<span class="example-val" id="skip-value-upper"></span>
-	<div id="skipstep" class="m-3"></div>
+	<span class="age-val" id="age_lower"></span>
+	<span class="age-val" id="age_upper"></span>
+	<div id="sg_age" class="m-3"></div>
 	
 	<div id="sg_option1" class="collapse">
 		<input type="checkbox" id="sg_option1_box" name="sg_option1_box" value="1">
@@ -285,7 +289,8 @@ li:hover {
 </form>
 
 <script>
-var skipSlider = document.getElementById('skipstep');
+//이중 슬라이더 사용
+var skipSlider = document.getElementById('sg_age');
 
 noUiSlider.create(skipSlider, {
     range: {
@@ -301,8 +306,8 @@ noUiSlider.create(skipSlider, {
 });
 
 var skipValues = [
-    document.getElementById('skip-value-lower'),
-    document.getElementById('skip-value-upper')
+    document.getElementById('age_lower'),
+    document.getElementById('age_upper')
 ];
 
 var age1;
@@ -318,6 +323,7 @@ skipSlider.noUiSlider.on('update', function (values, handle) {
 	
 })
 
+//kakao map api로 주소 입력
 var geo = new kakao.maps.services.Geocoder();
 
 //맵 생성 : window.onload로 변수 값 지정

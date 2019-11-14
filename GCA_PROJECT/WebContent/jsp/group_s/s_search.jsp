@@ -35,10 +35,7 @@ $(document).ready(function(){
 	
 	$('.create_room').on('click', function(){
 		location.href="s_search_cre.jsp";
-	})
-	
-	
-	
+	});
 });
 
 
@@ -46,13 +43,7 @@ $(document).ready(function(){
 
 <style>
 
-.swiper-container {
-	width: 100%;
-	height: 30px;
-	margin: 5px auto;
-	padding: 0 15px 0 15px;
-}
-
+.swiper-container { width: 100%; height: 30px; margin: 5px auto; padding: 0 15px 0 15px; }
 .swiper-slide {
 	text-align: center;
 	font-size: 15px;
@@ -73,68 +64,27 @@ $(document).ready(function(){
 	-webkit-align-items: center;
 	align-items: center;
 }
+.swiper-slide:hover { background-color: #FE7E7E; border-radius: 8px; color: #FFFFFF; }
 
-.swiper-slide:hover {
-	background-color: #FE7E7E;
-	border-radius: 8px;
-	color: #FFFFFF;
-}
+.create_room { border: 2px solid #FE7E7E; background-color: #FE9191; margin: 10px 0 5px 0; }
 
-.create_room {
-	border: 2px solid #FE7E7E;
-	background-color: #FE9191;
-	margin: 10px 0 5px 0;
-}
+.td1 { width: 50px; }
+.td2 { width: 200px; display:block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.td3 { width: 90px;	white-space: nowrap; }
+.content { line-height: 0.3; }
+.p1 { font-size: 20pt; }
+.p2 { font-size: 8pt; }
+.p3 { font-size: 10pt; }
+.p4 { font-size: 12pt; font-weight: bold; }
+.p5 { font-size: 10pt; }
+.p6 { font-size: 10pt; }
+.p7 { font-size: 12pt; color: #FE7E7E; font-weight: bold; }
+.p8 { font-size: 10pt; }
+.badge {  font-size: 9pt;  }
 
-.td1 {
-	width: 50px;
-}
-
-.td2 {
-	width: 200px;
-	display:block;
-	overflow: hidden; 
-	text-overflow: ellipsis;
-	white-space: nowrap; 
-}
-
-.td3 {
-	width: 90px;
-	white-space: nowrap;
-}
-
-.content {
-	line-height: 0.1;
-}
-
-.p1 {
-	font-size: 20pt;
-}
-
-.p2 {
-	font-size: 8pt;
-}
-
-.p3 {
-	font-size: 9pt;
-}
-.p4 {
-	font-size: 11pt;
-	font-weight: bold;
-}
-.p5 {
-	font-size: 8pt;
-}
-.p6 {
-	font-size: 9pt;
-}
-.p7 {
-	font-size: 10pt;
-	color: #FE7E7E;
-}
-.p8 {
-	font-size: 8pt;
-}
+#btn_badminton img:last-child {	display:none; }
+#btn_badminton:hover img:first-child { display:none }
+#btn_badminton:hover img:last-child { display:inline-block }
 
 </style>
 </head>
@@ -145,14 +95,18 @@ $(document).ready(function(){
 
 <div class="swiper-container">
 	<div class="swiper-wrapper">
-		<div class="swiper-slide p-2"><i class="fas fa-cloud pr-2"></i>전체</div>
+		<div class="swiper-slide p-2"><i class="fas fa-star-of-david pr-2"></i>전체</div>
 		<div class="swiper-slide p-2"><i class="fas fa-basketball-ball pr-2"></i>농구</div>
 		<div class="swiper-slide p-2"><i class="fas fa-running pr-2"></i>달리기 &amp; 산책</div>
 		<div class="swiper-slide p-2"><i class="fas fa-hiking pr-2"></i>등산</div>
-		<div class="swiper-slide p-2"><img class="pr-3" src="${pageContext.request.contextPath }/images/badminton-pink.png" width="35px">배드민턴</div>
+		<div class="swiper-slide p-2" id="btn_badminton">
+			<img class="pr-3" id="img_badminton" src="${pageContext.request.contextPath }/images/badminton-pink.png" width="33px">
+			<img class="pr-3" id="img_badminton" src="${pageContext.request.contextPath }/images/badminton-white.png" width="33px">
+			배드민턴</div>
 		<div class="swiper-slide p-2"><i class="fas fa-bowling-ball pr-2"></i>볼링</div>
 		<div class="swiper-slide p-2"><i class="fas fa-swimmer pr-2"></i>수영</div>
 		<div class="swiper-slide p-2"><i class="fas fa-bicycle pr-2"></i>자전거</div>
+		<div class="swiper-slide p-2"><i class="fas fa-feather-alt pr-2"></i>기타</div>
 	</div>
 </div>
 
@@ -160,7 +114,7 @@ $(document).ready(function(){
 	<tr>
 		<td class="td1" align="center">
 			<p class="content p1"><i class="fas fa-running pr-2"></i></p>
-			<p class="content p2"><span class="badge badge-pill badge-dark">중급▲</span></p>
+			<p class="content p2"><span class="badge badge-dark">중급▲</span></p>
 		</td>
 		
 		<td class="td2">
@@ -178,7 +132,7 @@ $(document).ready(function(){
 		<tr>
 		<td class="td1" align="center">
 			<p class="content p1"><i class="fas fa-running pr-2"></i></p>
-			<p class="content p2"><span class="badge badge-pill badge-dark">중급▲</span></p>
+			<p class="content p2"><span class="badge badge-dark">중급▲</span></p>
 		</td>
 		
 		<td class="td2">
@@ -196,7 +150,7 @@ $(document).ready(function(){
 		<tr>
 		<td class="td1" align="center">
 			<p class="content p1"><i class="fas fa-running pr-2"></i></p>
-			<p class="content p2"><span class="badge badge-pill badge-dark">중급▲</span></p>
+			<p class="content p2"><span class="badge badge-dark">중급▲</span></p>
 		</td>
 		
 		<td class="td2">
@@ -214,7 +168,7 @@ $(document).ready(function(){
 		<tr>
 		<td class="td1" align="center">
 			<p class="content p1"><i class="fas fa-running pr-2"></i></p>
-			<p class="content p2"><span class="badge badge-pill badge-dark">중급▲</span></p>
+			<p class="content p2"><span class="badge badge-dark">중급▲</span></p>
 		</td>
 		
 		<td class="td2">
