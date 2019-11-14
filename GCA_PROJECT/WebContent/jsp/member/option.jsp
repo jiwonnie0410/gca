@@ -42,7 +42,7 @@ thead {
 
 td {
 	font-size: 50px;
-	padding: 20px;
+	height : 150px;
 }
 
 button {
@@ -58,68 +58,39 @@ button {
 
 
 /*************toggle switch**********************/
+/** 출처: https://proto.io/freebies/onoff/  ios디자인 **//
 
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 100px;
-  height: 50px;
-  float: right;
-  margin: 0 20px 0 0;
-  
+.onoffswitch {
+    position: relative; width: 152px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
 }
-
-.switch input { 
-  opacity: 0;
-  width: 0;
-  height: 0;
+.onoffswitch-checkbox {
+    display: none;
 }
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    height: 67px; padding: 0; line-height: 67px;
+    border: 5px solid #E3E3E3; border-radius: 67px;
+    background-color: #cecece;
+    transition: background-color 0.3s ease-in;
 }
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 50px;
-  width: 50px;
-  left: 4px;
-  background-color: white;
-  box-shadow: 3px 3px 10px 0px #0000004a;
-  -webkit-transition: .4s;
-  transition: .4s;
+.onoffswitch-label:before {
+    content: "";
+    display: block; width: 67px; margin: 0px;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    right: 83px;
+    border: 5px solid #E3E3E3; border-radius: 67px;
+    transition: all 0.2s ease-in 0s; 
 }
-
-input:checked + .slider {
-  background-color: #FE9191;
+.onoffswitch-checkbox:checked + .onoffswitch-label {
+    background-color: #FE9191;
 }
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+.onoffswitch-checkbox:checked + .onoffswitch-label, .onoffswitch-checkbox:checked + .onoffswitch-label:before {
+   border-color: #FE9191;
 }
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(49px);
-  -ms-transform: translateX(26px);
-  transform: translateX(46px);
-}
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
+.onoffswitch-checkbox:checked + .onoffswitch-label:before {
+    right: 0px; 
 }
 
 /***********range slidar************************/
@@ -147,10 +118,11 @@ input:checked + .slider:before {
 .rangeSlider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 50px;
-  height: 50px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
-  background: #FE9191; <!--슬라이더  동그라미 색상 -->
+  background: #FE9191;
+  box-shadow : 0px 0px 0px 8px #FE9191;
   cursor: pointer;
 }
 
@@ -169,7 +141,6 @@ input:checked + .slider:before {
 </head>
 
 <body>
-
 <div class="optionDiv">
   <div class="title" style="height: 100px;">환경설정</div>
   <hr>
@@ -182,38 +153,38 @@ input:checked + .slider:before {
 		<tbody>
 			<tr>
 				<td width="1050">반짝 풀방시 알람</td>
-				<td width="150">
-					<label class="switch">
-					  <input type="checkbox" checked>
-					  <span class="slider round"></span>
-					</label>
+				<td width="200">
+					<div class="onoffswitch">
+					    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch1" checked>
+					    <label class="onoffswitch-label" for="myonoffswitch1"></label>
+					</div>
 				</td>
 			</tr>
 			<tr>
 				<td>범위내 등록된 반짝 알람</td>
 				<td>
-					<label class="switch">
-					  <input type="checkbox" checked>
-					  <span class="slider round"></span>
-					</label>
+					<div class="onoffswitch">
+					    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch2" checked>
+					    <label class="onoffswitch-label" for="myonoffswitch2"></label>
+					</div>
 				</td>
 			</tr>
 			<tr>
 				<td>범위내 등록된 용병 알람</td>
 				<td>
-					<label class="switch">
-					  <input type="checkbox" checked>
-					  <span class="slider round"></span>
-					</label>
+					<div class="onoffswitch">
+					    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch3" checked>
+					    <label class="onoffswitch-label" for="myonoffswitch3"></label>
+					</div>
 				</td>
 			</tr>
 			<tr>
 				<td>범위내 등록된 동아리매치 알람</td>
 				<td>
-					<label class="switch">
-					  <input type="checkbox" checked>
-					  <span class="slider round"></span>
-					</label>
+					<div class="onoffswitch">
+					    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch4" checked>
+					    <label class="onoffswitch-label" for="myonoffswitch4"></label>
+					</div>
 				</td>
 			</tr>
 			
