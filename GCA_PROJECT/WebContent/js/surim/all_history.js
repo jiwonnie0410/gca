@@ -41,10 +41,13 @@ document.addEventListener('DOMContentLoaded', function() {
 	    //이벤트 클릭시 모달열기
 	    eventClick: function(info) {
 	    	var eventDate = info.event.start;
-	    	$("#eventModal").modal();
 	    	
-	    	//var modal = $('eventModal'),
-	    	//modalContent = modal.find('.modal-body');
+	    	var arrDate = eventDate.toString().split(":00 GMT");
+	    	
+	    	$("#eventModal").modal();
+	    	$("#modalDate").html(arrDate[0]);
+	    	
+	    	console.log(eventDate + "date");
 	    	
 	    }//
 	  });
