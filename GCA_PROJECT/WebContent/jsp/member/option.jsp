@@ -58,10 +58,10 @@ button {
 
 
 /*************toggle switch**********************/
-/** 출처: https://proto.io/freebies/onoff/  ios디자인 **//
+/** 출처: https://proto.io/freebies/onoff/  ios디자인 **/
 
 .onoffswitch {
-    position: relative; width: 152px;
+    position: relative; width: 150px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
 }
 .onoffswitch-checkbox {
@@ -70,17 +70,17 @@ button {
 .onoffswitch-label {
     display: block; overflow: hidden; cursor: pointer;
     height: 67px; padding: 0; line-height: 67px;
-    border: 5px solid #E3E3E3; border-radius: 67px;
-    background-color: #cecece;
-    transition: background-color 0.3s ease-in;
+    border: 2px solid #999999; border-radius: 67px;
+    background-color: #c8c8c8;
+    transition: background-color 0.2s ease-in;
 }
 .onoffswitch-label:before {
     content: "";
     display: block; width: 67px; margin: 0px;
     background: #FFFFFF;
     position: absolute; top: 0; bottom: 0;
-    right: 83px;
-    border: 5px solid #E3E3E3; border-radius: 67px;
+    right: 81px;
+    border: 2px solid #999999; border-radius: 67px;
     transition: all 0.2s ease-in 0s; 
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label {
@@ -106,7 +106,6 @@ button {
   border-radius: 5px;
   background: #cccccca3; 
   outline: none;
-  opacity: 0.7;
   -webkit-transition: .2s;
   transition: opacity .2s;
 }
