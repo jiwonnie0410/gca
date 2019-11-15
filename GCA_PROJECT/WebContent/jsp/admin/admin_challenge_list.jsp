@@ -67,16 +67,42 @@
 			}
 		</style>
 		
-		<!-- 체크박스 하나만 선택 되게 하기 (복수 선택 방지) -->
 		<script type="text/javascript">
-		    function oneCheckbox(a){
-		        var obj = document.getElementsByName("checkbox1");
-		        for(var i=0; i<obj.length; i++){
-		            if(obj[i] != a){
-		                obj[i].checked = false;
-		            }
-		        }
-		    }
+				<!-- 챌린지 생성 모달에 챌린지 타입 선택하면 나오는 부분 -->
+				$(function(){
+					$('#challengeType').change(function(){
+						var type = $('#challengeType option:selected').val();
+						<!--반짝 n번 참여 -->
+						if(type == 'nTime'){
+							$('#addType').text('');
+							$('#addType').append('반짝 &nbsp;<input type="text" size="2">번 참여 <br><font size="2">예) 반짝 3번 참여</font>');
+						} 
+						<!-- 반짝 n가지 종목 참여 -->
+						else if(type == 'nKinds'){
+							$('#addType').text('');
+							$('#addType').append('반짝 &nbsp;<input type="text" size="2">가지 종목 참여 <br><font size="2">예) 반짝 2가지 종목 참여</font>');
+						} 
+						<!-- ㅁㅁ 종목 반짝 n번 참여 -->
+						else if(type == 'mKind_nTime'){
+							$('#addType').text('');
+							$('#addType').append('<input type="text" size="7">종목 반짝 <input type="text" size="2">번 참여 <br><font size="2">예) 자전거 종목 반짝 2번 참여</font>');
+						}
+						<!-- 선택 기본 암것도 없을 때 -->
+						else if(type == 'nothing'){
+							$('#addType').text('');
+						}
+					})
+				})
+				
+				<!-- 체크박스 하나만 선택 되게 하기 (복수 선택 방지) -->
+			    function oneCheckbox(a){
+			        var obj = document.getElementsByName("checkbox1");
+			        for(var i=0; i<obj.length; i++){
+			            if(obj[i] != a){
+			                obj[i].checked = false;
+			            }
+			        }
+			    }
 		</script>
 </head>
 <body>
@@ -160,7 +186,6 @@
 														<option	value="o_id" selected> 챌린지 이름 </option></select></td>
 												<td width="300"><input type="text" id='keyword' name='keyword' class="form-control"></td>
 												<td><button id='searchBtn' name='searchBtn' onclick='searchBtn' class="btn btn-outline-warning btn-sm">검색</button></td>
-												<td><button id='searchBtn' name='searchBtn' onclick='#' class="btn btn-outline-warning btn-sm">챌린지 생성</button></td>
 												</tr>
 											</table><br />
 										</form>
@@ -237,34 +262,49 @@
 <!-- Modal body -->
 				<div class="modal-body">
 						<div>
-							<table border="1">
-								<tr>
-									<th width="30%"> 챌린지 구분 </th><td width="20%"></td>
-									<td width="50%">
+							<table>
+								<tr height="50">
+									<th width="60"> 구분 </th>
+									<td>
 										<form name="sendForm">
 											<input type="checkbox" name="checkbox1" value="basic" onclick="oneCheckbox(this)" class="check-box"> 기본
 											<input type="checkbox" name="checkbox1" value="basic" onclick="oneCheckbox(this)" class="check-box"> 스페셜
 										</form></td>
 								</tr>
+								<tr height="50">
+									<th> 기간 </th>
+									<td> 시작 <input type="date">
+										  마감 <input type="date"></td>
+								</tr>
+								<tr height="50">
+									<th> 점수 </th>
+									<td><select class="btn btn-outline-secondary btn-sm dropdown-toggle">
+											<option	selected> 점수 선택 </option>
+											<option	value="o_id"> 300 </option>
+											<option	value="o_id"> 500 </option>
+											<option	value="o_id"> 700 </option>
+											<option	value="o_id"> 1000 </option>
+										</select>
+									</td>
+								</tr>
+								<tr height="50">
+									<th> 타입 </th>
+									<td><select id ="challengeType" class="btn btn-outline-secondary btn-sm dropdown-toggle">
+											<option	value="nothing" selected> 타입 선택 </option>
+											<option	value="nTime"> 반짝 n번 참여 </option>
+											<option	value="nKinds"> 반짝 n가지 종목 참여 </option>
+											<option	value="mKind_nTime"> ㅁㅁ 종목 반짝 n번 참여 </option>
+										</select>
+									</td>
+								</tr>
+								<tr height="50">
+									<th></th>
+									<td id="addType"></td>
+								</tr>
 							</table>
 							
 								
 						</div>
-					
-					
-					
-    				
-    				
-    				<input type="checkbox">
-    				<label> 체크박스 </label> <br />
-
-
-					<!-- 단수 선택  체크박스 -->
-					<form name="sendForm" method="get" >
-					    <input type="checkbox" name="checkbox1" value="a1" onclick="oneCheckbox(this)" id="cb1">a1
-					    <input type="checkbox" name="checkbox1" value="a2" onclick="oneCheckbox(this)" id="cb1">a2
-					    <input type="checkbox" name="checkbox1" value="a3" onclick="oneCheckbox(this)" id="cb1">a3
-					</form>
 				</div>
 <!-- Modal footer -->
 				<div class="modal-footer">
