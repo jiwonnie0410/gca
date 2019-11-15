@@ -19,13 +19,22 @@
 		slider.oninput = function() {
 		output.innerHTML = this.value;
 		}
+		
+		$('input[type=range]').on('input', function(){
+
+		    var val = $(this).val();
+		    $(this).css('background', 'linear-gradient(to right, #FE9191 0%, #FE9191 '+ val +'%, #d5d4d3 ' + val + '%, #d5d4d3 100%)');
+
+		  });
+		
 	});
+	
 </script>
 
 	
 <style>
 .optionDiv {
-	padding: 15px;
+	padding: 45px;
 }
 
 .title {
@@ -35,10 +44,11 @@
 }
 
 
-thead {
+ thead {
 	font-size: 50px;
 	font-weight: bold;
 }
+
 
 td {
 	font-size: 50px;
@@ -104,7 +114,7 @@ button {
   width: 100%;
   height: 30px;
   border-radius: 5px;
-  background: #cccccca3; 
+  background: #e0e0e0; 
   outline: none;
   -webkit-transition: .2s;
   transition: opacity .2s;
@@ -121,15 +131,14 @@ button {
   height: 80px;
   border-radius: 50%;
   background: #FE9191;
-  box-shadow : 0px 0px 0px 8px #FE9191;
   cursor: pointer;
 }
 
 .rangeSlider::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
-  background: #4CAF50;
+  background: #FE9191;
   cursor: pointer;
 }
 
@@ -151,8 +160,8 @@ button {
 		</thead>
 		<tbody>
 			<tr>
-				<td width="1050">반짝 풀방시 알람</td>
-				<td width="200">
+				<td width="1040">반짝 풀방시 알람</td>
+				<td width="160">
 					<div class="onoffswitch">
 					    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch1" checked>
 					    <label class="onoffswitch-label" for="myonoffswitch1"></label>
@@ -201,7 +210,9 @@ button {
 			<tr>
 				<td colspan="2">
 					<div class="slidecontainer">
-					  <input type="range" min="1" max="15" value="5" class="rangeSlider" id="myRange">
+<!-- 					  <input type="range" min="1" max="15" value="5" class="rangeSlider" id="myRange"> -->
+					  <input type="range" value="5" class="rangeSlider" id="myRange">
+					  
 					</div>
 				</td>
 			</tr>

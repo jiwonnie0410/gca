@@ -13,147 +13,91 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <script>
-$("document").ready(function() {
-	  $(".slider").rangeslider();
-	});
-	$.fn.rangeslider = function(options) {
-	  var obj = this;
-	  var defautValue = obj.attr("value");
-	  obj.wrap("<span class='range-slider'></span>");
-	  obj.after("<span class='slider-container'><span class='bar'><span></span></span><span class='bar-btn'><span>0</span></span></span>");
-	  obj.attr("oninput", "updateSlider(this)");
-	  updateSlider(this);
-	  return obj;
-	};
 
-	function updateSlider(passObj) {
-	  var obj = $(passObj);
-	  var value = obj.val();
-	  var min = obj.attr("min");
-	  var max = obj.attr("max");
-	  var range = Math.round(max - min);
-	  var percentage = Math.round((value - min) * 100 / range);
-	  var nextObj = obj.next();
-	  nextObj.find("span.bar-btn").css("left", percentage + "%");
-	  nextObj.find("span.bar > span").css("width", percentage + "%");
-	  nextObj.find("span.bar-btn > span").text(percentage);
-	};
+$(function() {
+	
+	$('input[type=range]').on('input', function(){
+
+	    var val = $(this).val();
+	    $(this).css('background', 'linear-gradient(to right, #FE9191 0%, #FE9191 '+ val +'%, #d5d4d3 ' + val + '%, #d5d4d3 100%)');
+
+	  });
+	
+});
+
 
 
 </script>
 
 <style>
 
-.range-slider {
-  display: inline-block;
-  width: 100%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  position: relative;
-  padding-bottom: 15px;
-  & > input {
-    opacity: 0;
-    width: 100%;
-    position: relative;
-    z-index: 5;
-    margin-top: 72px;
-    -webkit-appearance: none;
-    &::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      z-index: 100;
-      position: relative;
-      width: 50px;
-      height: 30px;
-      -webkit-border-radius: 10px;
-    }
-  }
-  & > span.slider-container {
-    display: inline-block;
-    min-height: 110px;
-    display: inline-block;
-    position: absolute;
-    top: 70px;
-    left: -8px;
-    right: 46px;
-    z-index: 3;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    & > span.bar {
-        background-color: #000;
-        display: inline-block;
-        position: absolute;
-        z-index: 1;
-        top: 12px;
-        left: 10px;
-        right: -42px;
-        height: 11px;
-        overflow: hidden;
-        -webkit-border-radius: 10px;
-        -moz-border-radius: 10px;
-        border-radius: 10px;
-        & > span {
-          background: #02c38a;
-          display: inline-block;
-          float: left;
-          height: 11px;
-          width: 0%;
-        }
-      }
-      & > span.bar-btn {
-        display: inline-block;
-        position: absolute;
-        width: 46px;
-        height: 30px;
-        padding-top: 8px;
-        font-weight: bold;
-        text-align: center;
-        background: #fff;
-        left: -25px;
-        top: -65px;
-        border-radius: 3px;
-        border: #333 2px solid;
-        -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, .8);
-        -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, .8);
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, .8);
-        &:after {
-          content: "";
-          border: 2px solid #fff;
-          background-color: #02c38a;
-          border-radius: 20px;
-          width: 30px;
-          height: 30px;
-          display: inline-block;
-          position: absolute;
-          left: 8px;
-          top: 63px;
-          z-index: 3;
-          -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, .8);
-          -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, .8);
-          box-shadow: 0px 0px 10px rgba(0, 0, 0, .8);
-        }
-        & > span{
-          &:before {
-            content: "";
-            display: inline-block;
-            width: 0;
-            height: 0;
-            border-width: 25px;
-            border-style: solid;
-            border-color: #333 transparent transparent;
-            position: absolute;
-            top: 39px;
-            left: -2px;
-          }
-          &:after {
-            content: "%";
-          }
-        }
-      }
+input[type=range] {
 
-    }
-}
+    -webkit-appearance: none;
+
+    width: 100%;
+
+    height: 6px;
+
+    background: #d5d4d3;
+
+    cursor: pointer;
+
+    border-radius: 0; /* iOS */
+
+   transition: background 450ms ease-in;
+
+  }
+
+ 
+
+ 
+
+  input[type=range]:focus {
+
+    outline: none;
+
+  }
+
+ 
+
+ 
+
+  input[type=range]::-webkit-slider-thumb{
+
+    -webkit-appearance: none;
+
+    width: 12px;
+
+    height: 12px;
+
+    background: #fff;
+
+    border: 1px solid dodgerblue;
+
+    border-radius:50%;
+
+    cursor: pointer;
+
+  }
+
+  input[type=range]::-moz-range-thumb{
+
+    -webkit-appearance: none;
+
+    width:10px;
+
+    height:10px;
+
+    background: #fff;
+
+    border: 1px solid dodgerblue;
+
+    border-radius:50%;
+
+    cursor: pointer;
+
+  }
 
 </style>
 
@@ -161,8 +105,8 @@ $("document").ready(function() {
 
 <body>
 
-<input class="slider" value="20" min="0" max="100" name="rangeslider" type="range" />
 
+<input type="range" value="0">
 
 </body>
 </html>
