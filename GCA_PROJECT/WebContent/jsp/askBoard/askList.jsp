@@ -60,9 +60,9 @@
                 <table class="table" >
                 	<thead>
 	                   <tr>
-							<th ><center>#</center></th>
-							<th ><center>ID</center></th>
-							<th ><center>Title</center></th>
+							<th width="20" ><center>#</center></th>
+							<th width="20"><center>ID</center></th>
+							<th width="60"><center>Title</center></th>
 					 </tr>
 			       </thead>	
 			      <%--  <tbody>		
@@ -79,7 +79,7 @@
                                 <tr>
                                     <td align="center">1</td>
                                     <td align="center">진뇽</td>
-                                    <td class="autocut" >진뇽이다</td>
+                                    <td align="center" class="autocut" >진뇽이다</td>
                                 </tr>
                 </table>
                 </div>

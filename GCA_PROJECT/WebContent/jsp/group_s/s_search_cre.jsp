@@ -57,20 +57,10 @@ $(document).ready(function(){
 </script>
 <style>
 
-body{
-	padding: 10px;
-}
+body{ padding: 10px; }
 
-.btn {
-	border-color: #FE9191;
-	color: #FE9191;
-}
-    
-.btn:hover {
-	background-color: #FE9191;
-	color: #FFF;
-}
-    
+.btn { border-color: #FE9191; color: #FE9191; }
+.btn:hover { background-color: #FE9191; color: #FFF; }
 .btn:focus {
 	color: #fff;
 	background-color: #FE9191;
@@ -79,20 +69,18 @@ body{
 	box-shadow: none;
 }
 
-.dropdown-menu > li {
-	color: gray;
-	font-weight: lighter;
-	padding: 5px 0 5px 10px;
+.btn2 { background-color: #FE9191;	border-color: #FE9191;	color: #FFF; }
+.btn2:hover {	background-color: #FFFFFF;	border-color: #FE9191;	color: #FE9191; }
+.btn2:focus {
+	color: #FE9191;
+	background-color: #FFF;
+	border-color: #FE9191;
+	outline: none;
+	box-shadow: none;
 }
 
-li:hover {
-	background-color: #FAF0F0 !important;
-}
-
-
-.custom-checkbox {
-	font-size: 12px;
-}
+.dropdown-menu > li {	color: gray;	font-weight: lighter;	padding: 5px 0 5px 10px;}
+li:hover {	background-color: #FAF0F0 !important;}
 
 .d_day {
 	border: 1px solid #FE9191;
@@ -110,13 +98,21 @@ li:hover {
 	border-radius: 5px;
 }
 
-#sg_age .noUi-handle {
-	padding: 0 17px;
+#sg_age .noUi-handle {	padding: 0 17px;}
+#age_text {
+	color: gray;
+	border-style: dashed;
+	border-color: #FE9191;
+	border-radius: 5px;
+}
+#age_title {
+	color: #FE9191;
+	font-size: 15px;
 }
 
+#btn_cre {	width:100%;}
 
 /* 라디오 버튼 */
-
 /* The container */
 .radio_label {
   display: block;
@@ -155,7 +151,7 @@ li:hover {
 
 /* When the radio button is checked, add a blue background */
 .radio_label input:checked ~ .checkmark {
-  background-color: #2196F3;
+  background-color: #FE9191;
 }
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
@@ -187,18 +183,19 @@ li:hover {
 
 <form action="/action_page.php" class="was-validated">
 
-	<div class="row m-1">
+	<div class="row mr-2 ml-2 mt-3 mb-3">
 		<input type="text" class="form-control sg_name" id="sg_name" placeholder="반짝 방 이름" name="sg_name" required>
 	</div>
 	
-	<div class="txc-textbox m-1">
+	<div class="row mr-2 ml-2 mt-3 mb-3">
+	<div class="txc-textbox mr-2">
 		<div id="sg_sport" class="btn-group">
 			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				운동 종목 
 				<span class="caret"></span>
 			</button>
 			<ul class="dropdown-menu sg_option_click">
-				<li class="sg_option_click1">농구</li>
+				<li class="sg_option_click1"">농구</li>
 				<li class="sg_option_click2">달리기/산책</li>
 				<li class="sg_option_click3">등산</li>
 				<li class="sg_option_click1">배드민턴</li>
@@ -210,9 +207,9 @@ li:hover {
 		</div>
 	</div>
 
-	<div class="txc-textbox m-1">
+	<div class="txc-textbox">
 		<div id="sg_skill" class="btn-group">
-			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			<button type="button" class="btn btn-default dropdown-toggle btn-block" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"">
 				숙련도 
 				<span class="caret"></span>
 			</button>
@@ -224,24 +221,25 @@ li:hover {
 			</ul>
 		</div>
 	</div>
+	</div>
 	
-	<div class="row m-1 d_day">
-		<span class="mr-5 middle">마감 날짜</span>
+	<div class="row mr-2 ml-2 mt-3 mb-3 d_day">
+		<span class="ml-2 mr-5 middle" style="margin-top: 2px">마감 날짜</span>
 		<input type="date" id="sg_end" name="sg_end">
 	</div>
 	
 
-	<div class="row m-1" style="padding: 0px">
-		<input type="text" class="form-control" placeholder="장소 찾기" id="sg_location" name="sg_location" readonly>
+	<div class="row mr-2 ml-2 mt-3" style="padding: 0px">
+		<input type="text" class="form-control" placeholder="'장소 찾기'를 눌러주세요." id="sg_location" name="sg_location" readonly>
 	</div>
-	<div class="row m-1">
-		<input type="button" class="btn btn-default form-control" onclick="sgAddr()" value="주소찾기">
+	<div class="row mr-2 ml-2 mt-1 mb-3">
+		<input type="button" class="btn btn-default form-control btn2" onclick="sgAddr()" value="장소 찾기">
 	</div>
 	<input type="hidden" name="sg_xy" id="sg_xy">
 	<div id="map" style="width: 93%; height: 250px; margin: 10px; display: none; border"></div>
 	
 	
-	<div class="txc-textbox m-1">
+	<div class="txc-textbox mr-2 ml-2 mt-3">
 		<div id="sg_finish" class="btn-group">
 			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				참여 인원 
@@ -255,8 +253,8 @@ li:hover {
 		</div>
 	</div>
 	
-	<div class="row m-1 pt-2">
-		<label class="radio_label">&nbsp;&nbsp;&nbsp;남자만&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<div class="row mr-2 ml-2 mt-2 mb-3 pt-2">
+		<label class="radio_label ml-3">&nbsp;&nbsp;&nbsp;남자만&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<input type="radio" checked="checked" name="sg_gender" id="sg_gender" value="1">
 			<span class="checkmark"></span>
 		</label>
@@ -270,21 +268,24 @@ li:hover {
 		</label>
 	</div>
 
-	<span class="age-val" id="age_lower"></span>
-	<span class="age-val" id="age_upper"></span>
-	<div id="sg_age" class="m-3"></div>
+
+	<span class="ml-2" id="age_title"><i class="fas fa-pencil-alt mr-2 "></i>연령대를 선택해 주세요.</span><br>
+	<p class="mr-2 ml-2 mt-1" id="age_text" style="text-align:center;">
+		<span class="age-val mr-1" id="age_lower"></span>
+		<span class="age-val" id="age_upper"></span>
+	</p>
+	<div id="sg_age" class="mr-4 ml-4 mt-2 mb-3"></div>
 	
-	<div id="sg_option1" class="collapse">
-		<input type="checkbox" id="sg_option1_box" name="sg_option1_box" value="1">
-		<label>개인 도구 필요(예. 농구공, 배드민턴 라켓, 셔틀콕 등)</label>
+	
+	<div id="sg_option1" class="collapse" style="margin: 0 10px 15px 10px;">
+		<input class="check-box" type="checkbox" id="sg_option1_box" name="sg_option1_box" value="1"> 개인 도구 필요(예: 농구공, 배드민턴 라켓, 셔틀콕 등)
 	</div>
 	
-	<div id="sg_option2" class="collapse">
-		<input type="checkbox" id="sg_option2_box" name="sg_option2_box" value="2">
-		<label>반려 동물 동반</label>
+	<div id="sg_option2" class="collapse" style="margin: 0 10px 15px 10px;">
+		<input class="check-box" type="checkbox" id="sg_option2_box" name="sg_option2_box" value="2"> 반려 동물 동반
 	</div>
 	
-	<input type="submit" class="btn btn-default  form-control" value="방 생성">
+	<input type="submit" class="btn btn-default btn2" id="btn_cre" value="방 생성">
 
 </form>
 

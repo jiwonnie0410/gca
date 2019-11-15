@@ -38,7 +38,7 @@
             <div align="center">
               <div class="jumbotron">
 				<h2>홍보</h2>
-				<p>* 홍보.</p>
+				<p>* 홍보설명글</p>
 			 </div>
 			
 				<div align="center" style="padding-right:3%;padding-left:3%;">
@@ -50,9 +50,9 @@
                 <table class="table" >
                 	<thead>
 	                   <tr>
-							<th ><center>#</center></th>
-							<th ><center>ID</center></th>
-							<th ><center>Title</center></th>
+							<th width="20" ><center>#</center></th>
+							<th width="20"><center>ID</center></th>
+							<th width="60"><center>Title</center></th>
 					 </tr>
 			       </thead>	
 			      <%--  <tbody>		
@@ -69,7 +69,7 @@
                                 <tr>
                                     <td align="center">1</td>
                                     <td align="center">진뇽</td>
-                                    <td class="autocut" >진뇽이다</td>
+                                    <td  align="center" class="autocut">진뇽이다진뇽이다진뇽이다진뇽이다</td>
                                 </tr>
                 </table>
                 </div>
@@ -78,65 +78,6 @@
             </div>
         </form>
         
-   <!-- Modal -->
-  	<div class="modal fade" id="myModal" role="dialog" >
-    	<div class="modal-dialog modal-lg">
-    
-      	<!-- Modal content-->
-      	<div class="modal-content">
-	        <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal">&times;</button>
-	        </div>
-        
-        <div class="modal-body">
-          
-			<div class="panel-group">
-			<div class="panel panel-success" style="margin-top: 10px;">
-				<div class="panel-heading">홍보</div>
-				<div class="panel-body">
-					<form class="form-horizontal" role="form" action="${review_write}" method="post">
-						<div class="form-group">
-							<label class="control-label col-sm-2">작성자(ID):</label>
-							<div class="col-sm-10">
-								<input type="hidden" id="board_id" name="board_id" value="${boardView.writer}" />
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label col-sm-2" for="pwd">제목:</label>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" id="review_title" name="review_title" placeholder="Title">
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label class="control-label col-sm-2" for="pwd">내용:</label>
-							<div class="col-sm-10">
-								 <textarea name="content" id="content" rows="10" cols="80">${boardView.content}</textarea>
-							</div>
-						</div>
-				
-						<div class="form-group">
-							<div class="col-sm-offset-2 col-sm-10">
-								<button type="submit" class="btn btn-success">작 성</button>
-								<button type="reset" class="btn btn-danger">초기화</button>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-  
-  
-  
-		
 </body>
 <script src="${pageContext.request.contextPath }/js/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath }/js/jquery-migrate-3.0.1.min.js"></script>
@@ -154,7 +95,6 @@
 <script src="${pageContext.request.contextPath }/js/google-map.js"></script>
 <script src="${pageContext.request.contextPath }/js/main.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.js"></script>
-<script src="//cdn.ckeditor.com/4.7.1/standard/ckeditor.js"></script>
 
 <!--ㅡ모달  -->
 <%-- jQuery CDN --%>
