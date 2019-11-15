@@ -23,12 +23,11 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.js"></script>
-        <script src="//cdn.ckeditor.com/4.7.1/basic/ckeditor.js"></script>
         <script type="text/javascript">
             $(document).ready(function(){
                  
                 CKEDITOR.replace( 'content' );
-                CKEDITOR.config.height = 500;
+                CKEDITOR.config.height = 300; //높이 설정
                  
                 $("#list").click(function(){
                     location.href = "/board/list";
@@ -46,9 +45,9 @@
                         return false;
                     }
                      
-                    if($("#writer").val().trim() == ""){
-                        alert("작성자를 입력하세요.");
-                        $("#writer").focus();
+                    if($("#content").val().trim() == ""){
+                        alert("내용을 입력하세요.");
+                        $("#content").focus();
                         return false;
                     }
                      
@@ -71,11 +70,11 @@
                     <td> 제목: 
                      <input type="text" id="subject" name="subject" style="width:90%;" placeholder="제목" value="${boardView.subject}"/>
                      <td> 작성자:
-                    <input type="text" id="writer" name="writer"  maxlength="10" placeholder="작성자" value="${boardView.writer}"/></td>
+                    <input type="text" id="writer" name="writer"  maxlength="10"  value="${boardView.writer}" readonly="readonly"/></td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <textarea name="content" id="content" rows="10" cols="80">${boardView.content}</textarea>
+                        <textarea name="content" id="content" rows="10" cols="80" style="height: 300px;"></textarea>
                     </td>
                 </tr>
                 </table>
@@ -83,7 +82,7 @@
                 <div align="center">
                     
                      <button class="btn btn-primary px-5 py-3" id="save" name="save">저장</button>
-                        <button class="btn btn-primary px-5 py-3" id="list" name="list">게시판</button>
+                     <button class="btn btn-primary px-5 py-3" id="list" name="list">게시판</button>
                   </div>  
                 
             
@@ -106,5 +105,5 @@
 <script src="${pageContext.request.contextPath }/js/google-map.js"></script>
 <script src="${pageContext.request.contextPath }/js/main.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.js"></script>
-<script src="//cdn.ckeditor.com/4.7.1/standard/ckeditor.js"></script>
+<script src="ckeditor/ckeditor.js"></script>
 </html>
