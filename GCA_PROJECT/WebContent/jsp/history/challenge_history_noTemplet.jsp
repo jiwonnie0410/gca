@@ -46,13 +46,15 @@ div.card.bg-warning div.card-body.text-center{
 	border-radius: 10px;
 	margin-left:8px;
 	margin-top:8px;
-	padding:10px;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:10px;
 	width: 95%;
-	height: 100px;
+	height: 120px;
 
-	background-color: #fff;
+	background-color: #FAF0F0;
 }
-.container > div:nth-child(2n+1) {
+.container > div:nth-child(2n+1) { /* 홀수번째 카드 분홍색으로 했는데 스페셜챌린지만 분홍색으로 하는게 더 나을듯? */
 	background-color: white;
 }
 
@@ -60,17 +62,30 @@ div.card.bg-warning div.card-body.text-center{
 
 </head>
 <body>
-<div class="container">	
+<div style="margin-top: 40px" class="container">	
 	<div>
-		챌린지1s
+		<span style="margin-top:10px;margin-bottom:10px;float:left;">기본<br />기간<br />리워드<br /></span>
+		<span style="float: right;"><img width="140px" height="112px" src="${pageContext.request.contextPath }/images/challenge_ing.png"></span>
 	</div>
 	
-	<div>
-		챌린지2
+	<div style="clear: both;">
+		<span>챌린지22</span>
+		<span style="float: right;"><img width="140px" height="112px" src="${pageContext.request.contextPath }/images/challenge_fail.png"></span>
 	</div>
 	
-	<div>
-		챌린지3
+	<div style="clear: both;">
+		<span>챌린지333</span>
+		<span style="float: right;"><img width="140px" height="112px" src="${pageContext.request.contextPath }/images/challenge_success.png"></span>
+	</div>
+	
+	<div style="clear: both;">
+		<span>챌린지4</span>
+		<span style="float: right;"><img width="140px" height="112px" src="${pageContext.request.contextPath }/images/challenge_ing.png"></span>
+	</div>
+	
+	<div style="clear: both;">
+		<span>챌린지5</span>
+		<span style="float: right;"><img width="140px" height="112px" src="${pageContext.request.contextPath }/images/challenge_success.png"></span>
 	</div>
 </div>
 	
