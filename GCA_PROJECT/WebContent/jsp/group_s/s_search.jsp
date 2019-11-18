@@ -36,6 +36,28 @@ $(document).ready(function(){
 	$('.create_room').on('click', function(){
 		location.href="s_search_cre.jsp";
 	});
+	
+	var sport_icon = $('.p1').text();
+	console.log(sport_icon);
+	if(sport_icon == 'basketball'){
+		$('.p1').html('<i class="fas fa-basketball-ball pr-2"></i>');
+	} else if(sport_icon == 'running'){
+		$('.p1').html('<i class="fas fa-running pr-2"></i>');
+	} else if(sport_icon == 'hiking'){
+		$('.p1').html('<i class="fas fa-hiking pr-2"></i>');
+	} else if(sport_icon == 'badminton'){
+		$('.p1').html('<img src="${pageContext.request.contextPath }/images/badminton-black.png" width="32px">');
+	} else if(sport_icon == 'bowling'){
+		$('.p1').html('<i class="fas fa-bowling-ball pr-2"></i>');
+	} else if(sport_icon == 'swimming'){
+		$('.p1').html('<i class="fas fa-swimmer pr-2"></i>');
+	} else if(sport_icon == 'bicycle'){
+		$('.p1').html('<i class="fas fa-bicycle pr-2"></i>');
+	} else {
+		$('.p1').html('<i class="fas fa-feather-alt pr-2"></i>');
+	}
+	
+	
 });
 
 
@@ -68,18 +90,18 @@ $(document).ready(function(){
 
 .create_room { border: 2px solid #FE7E7E; background-color: #FE9191; margin: 10px 0 5px 0; }
 
-.td1 { width: 50px; }
-.td2 { width: 200px; display:block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.td3 { width: 90px;	white-space: nowrap; }
-.content { line-height: 0.3; }
-.p1 { font-size: 20pt; }
-.p2 { font-size: 8pt; }
-.p3 { font-size: 10pt; }
-.p4 { font-size: 12pt; font-weight: bold; }
-.p5 { font-size: 10pt; }
-.p6 { font-size: 10pt; }
-.p7 { font-size: 12pt; color: #FE7E7E; font-weight: bold; }
-.p8 { font-size: 10pt; }
+.td1 { width: 50px; float: top; position: relative; }
+.td2 { width: 200px; float: top; position: relative; }
+.td3 { width: 90px;	white-space: nowrap; float: top; position: relative; }
+/* .content { line-height: 0.3; } */
+.p1 { font-size: 23pt; position: absolute; margin: 0 0 0 5px;}
+.p2 { font-size: 8pt; position: absolute; margin: 47px 0 0 0;}
+.p3 { font-size: 10pt; position: absolute; margin: 0 0 0 5px;}
+.p4 { font-size: 12pt; font-weight: bold; position: absolute; margin: 19px 0 0 5px;}
+.p5 { font-size: 10pt; position: absolute; margin: 47px 0 0 5px;}
+.p6 { font-size: 10pt; position: absolute; margin: 0 0 0 0;}
+.p7 { font-size: 12pt; color: #FE7E7E; font-weight: bold; position: absolute; margin: 19px 0 0 0;}
+.p8 { font-size: 10pt; position: absolute; margin: 47px 0 0 0;}
 .badge {  font-size: 9pt;  }
 
 #btn_badminton img:last-child {	display:none; }
@@ -111,9 +133,9 @@ $(document).ready(function(){
 </div>
 
 <table class="table table-striped">
-	<tr>
-		<td class="td1" align="center">
-			<p class="content p1"><i class="fas fa-running pr-2"></i></p>
+		<tr>
+		<td class="td1">
+			<p class="content p1">etc-sport</p>
 			<p class="content p2"><span class="badge badge-dark">중급▲</span></p>
 		</td>
 		
@@ -129,60 +151,7 @@ $(document).ready(function(){
 			<p class="content p8"><span class="badge badge-pill badge-warning mr-1"><font color="red">3</font>&nbsp;/&nbsp;4명</span></p>
 		</td>
 	</tr>
-		<tr>
-		<td class="td1" align="center">
-			<p class="content p1"><i class="fas fa-running pr-2"></i></p>
-			<p class="content p2"><span class="badge badge-dark">중급▲</span></p>
-		</td>
-		
-		<td class="td2">
-			<p class="content p3">진성 초등학교</p>
-			<p class="content p4">같이 달리기 하실 분!</p>
-			<p class="content p5"><span class="badge badge-info mr-2">여성</span>20 ~ 30대</p>
-		</td>
-		
-		<td class="td3" align="center">
-			<p class="content p6">19.12.25(수)</p>
-			<p class="content p7">오후10:30</p>
-			<p class="content p8"><span class="badge badge-pill badge-warning mr-1"><font color="red">3</font>&nbsp;/&nbsp;4명</span></p>
-		</td>
-	</tr>
-		<tr>
-		<td class="td1" align="center">
-			<p class="content p1"><i class="fas fa-running pr-2"></i></p>
-			<p class="content p2"><span class="badge badge-dark">중급▲</span></p>
-		</td>
-		
-		<td class="td2">
-			<p class="content p3">진성 초등학교</p>
-			<p class="content p4">같이 달리기 하실 분!</p>
-			<p class="content p5"><span class="badge badge-info mr-2">여성</span>20 ~ 30대</p>
-		</td>
-		
-		<td class="td3" align="center">
-			<p class="content p6">19.12.25(수)</p>
-			<p class="content p7">오후10:30</p>
-			<p class="content p8"><span class="badge badge-pill badge-warning mr-1"><font color="red">3</font>&nbsp;/&nbsp;4명</span></p>
-		</td>
-	</tr>
-		<tr>
-		<td class="td1" align="center">
-			<p class="content p1"><i class="fas fa-running pr-2"></i></p>
-			<p class="content p2"><span class="badge badge-dark">중급▲</span></p>
-		</td>
-		
-		<td class="td2">
-			<p class="content p3">진성 초등학교ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ</p>
-			<p class="content p4">같이 달리기 하실 분ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ</p>
-			<p class="content p5"><span class="badge badge-info mr-2">여성</span>20 ~ 30대</p>
-		</td>
-		
-		<td class="td3" align="center">
-			<p class="content p6">19.12.25(수)</p>
-			<p class="content p7">오후10:30</p>
-			<p class="content p8"><span class="badge badge-pill badge-warning mr-1"><font color="red">3</font>&nbsp;/&nbsp;4명</span></p>
-		</td>
-	</tr>
+
 </table>
 
 
