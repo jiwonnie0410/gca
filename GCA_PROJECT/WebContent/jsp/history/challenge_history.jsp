@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <div class="container">s
+    <div class="container">
         <div class="row">
             <div class="col-sm-6 col-md-4">
                 <div class="box"><img src="img-1.jpg" alt="Desmond" />
