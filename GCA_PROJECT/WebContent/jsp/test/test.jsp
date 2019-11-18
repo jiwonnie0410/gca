@@ -15,10 +15,17 @@
 <script>
 
 $(function() {
+	var slider = document.getElementById("myRange"); 
+	var output = document.getElementById("checkRange");
+	output.innerHTML = slider.value;
 	
-	$('input[type=range]').on('input', function(){
+	slider.oninput = function() {
+	output.innerHTML = this.value;
+	}
 
-	    var val = $(this).val();
+	$('input[type=range]').on('input', function(){
+		var value = ($(this).val() - $(this).attr('min')) / ($(this).attr('max') - $(this).attr('min'));
+		var val = value * 100;
 	    $(this).css('background', 'linear-gradient(to right, #FE9191 0%, #FE9191 '+ val +'%, #d5d4d3 ' + val + '%, #d5d4d3 100%)');
 
 	  });
@@ -26,79 +33,63 @@ $(function() {
 });
 
 
-
 </script>
 
 <style>
+/***********range slidar************************/
 
-input[type=range] {
+.slidecontainer {
+  width: 100%;
+}
 
-    -webkit-appearance: none;
+.rangeSlider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 30px;
+  border-radius: 5px;
+  background: #e0e0e0; 
+  outline: none;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  
+	background-image: -webkit-gradient(linear,
+	  left top, 
+	  right top, 
+	  color-stop(33%, #FE9191),
+	  color-stop(33%, #e0e0e0));
+}
 
-    width: 100%;
+.rangeSlider:hover {
+  opacity: 1;
+}
 
-    height: 6px;
+/* 동그라미 옵션 webkit: chrome; moz: firefox */
+.rangeSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #FE9191;
+  cursor: pointer;
+  box-shadow: 0 0 0 10px white;
+}
 
-    background: #d5d4d3;
+.rangeSlider::-moz-range-thumb {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #FE9191;
+  cursor: pointer;
+  box-shadow: 0 0 0 10px white;
+  
+}
 
-    cursor: pointer;
+.rangeSlider::-webkit-range-progress {
+	background: red;
+	height: 10px;
 
-    border-radius: 0; /* iOS */
-
-   transition: background 450ms ease-in;
-
-  }
-
- 
-
- 
-
-  input[type=range]:focus {
-
-    outline: none;
-
-  }
-
- 
-
- 
-
-  input[type=range]::-webkit-slider-thumb{
-
-    -webkit-appearance: none;
-
-    width: 12px;
-
-    height: 12px;
-
-    background: #fff;
-
-    border: 1px solid dodgerblue;
-
-    border-radius:50%;
-
-    cursor: pointer;
-
-  }
-
-  input[type=range]::-moz-range-thumb{
-
-    -webkit-appearance: none;
-
-    width:10px;
-
-    height:10px;
-
-    background: #fff;
-
-    border: 1px solid dodgerblue;
-
-    border-radius:50%;
-
-    cursor: pointer;
-
-  }
-
+}
 </style>
 
 </head>
@@ -106,7 +97,13 @@ input[type=range] {
 <body>
 
 
-<input type="range" value="0">
+<br><br>
+<div class="slidecontainer">
+<input type="range" value="5" class="rangeSlider" id="myRange" min="1" max="15">
+  
+</div>
+반경범위: <span id="checkRange"></span>km
+
 
 </body>
 </html>

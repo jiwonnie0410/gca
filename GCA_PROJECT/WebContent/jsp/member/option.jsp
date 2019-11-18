@@ -9,25 +9,31 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-<!-- range slider JS -->
+<!-- range slider JS ; https://jsfiddle.net/daltonrenaldo/4zxm7fw0/  참조-->
+
 <script>
-	$(function() {
-		var slider = document.getElementById("myRange"); 
-		var output = document.getElementById("checkRange");
-		output.innerHTML = slider.value;
-		
-		slider.oninput = function() {
-		output.innerHTML = this.value;
-		}
-		
-		$('input[type=range]').on('input', function(){
-
-		    var val = $(this).val();
-		    $(this).css('background', 'linear-gradient(to right, #FE9191 0%, #FE9191 '+ val +'%, #d5d4d3 ' + val + '%, #d5d4d3 100%)');
-
-		  });
-		
+$(function() {
+	var slider = $('#myRange');
+	var output = $("#checkRange");
+	output.html(slider.val());
+	
+	slider.on('input', function() {
+		output.html( slider.val() );
 	});
+	 
+	// 페이지로딩시 슬라이더 기본값만큼 색칠 ( value= 기본값 - 민값/맥스값 - 민값) FE9191=색칠색(핑크) d5d4d3=백그라운드색(회색)
+	var value = ($('#myRange').val() - $('#myRange').attr('min')) / ($('#myRange').attr('max') - $('#myRange').attr('min'));
+	var percent = value * 100;
+	$('#myRange').css('background', 'linear-gradient(to right, #FE9191 0%, #FE9191 '+ percent +'%, #d5d4d3 ' + percent + '%, #d5d4d3 100%)');
+
+	//슬라이더 동그라미 이동시 변경값만큼 동적으로 색칠
+	$('#myRange').on('input', function(){
+		var value = ($(this).val() - $(this).attr('min')) / ($(this).attr('max') - $(this).attr('min'));
+		var percent = value * 100;
+	    $(this).css('background', 'linear-gradient(to right, #FE9191 0%, #FE9191 '+ percent +'%, #d5d4d3 ' + percent + '%, #d5d4d3 100%)');
+
+	  });
+});
 	
 </script>
 
@@ -86,11 +92,11 @@ button {
 }
 .onoffswitch-label:before {
     content: "";
-    display: block; width: 67px; margin: 0px;
+    display: block; width: 60px; margin: 0px;
     background: #FFFFFF;
     position: absolute; top: 0; bottom: 0;
     right: 81px;
-    border: 2px solid #999999; border-radius: 67px;
+    border: 6px solid #999999; border-radius: 67px;
     transition: all 0.2s ease-in 0s; 
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label {
@@ -104,7 +110,6 @@ button {
 }
 
 /***********range slidar************************/
-
 .slidecontainer {
   width: 100%;
 }
@@ -114,16 +119,18 @@ button {
   width: 100%;
   height: 30px;
   border-radius: 5px;
-  background: #e0e0e0; 
   outline: none;
   -webkit-transition: .2s;
   transition: opacity .2s;
+  background: #e0e0e0;
+  	
 }
 
 .rangeSlider:hover {
   opacity: 1;
 }
 
+/* 동그라미 옵션 webkit: chrome; moz: firefox */
 .rangeSlider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -132,6 +139,7 @@ button {
   border-radius: 50%;
   background: #FE9191;
   cursor: pointer;
+  box-shadow: 0 0 0 10px white;
 }
 
 .rangeSlider::-moz-range-thumb {
@@ -140,8 +148,15 @@ button {
   border-radius: 50%;
   background: #FE9191;
   cursor: pointer;
+  box-shadow: 0 0 0 10px white;
+  
 }
 
+.rangeSlider::-webkit-range-progress {
+	background: red;
+	height: 10px;
+
+}
 
 </style>	
 
@@ -210,8 +225,7 @@ button {
 			<tr>
 				<td colspan="2">
 					<div class="slidecontainer">
-<!-- 					  <input type="range" min="1" max="15" value="5" class="rangeSlider" id="myRange"> -->
-					  <input type="range" value="5" class="rangeSlider" id="myRange">
+					  <input type="range" min="1" max="15" value="5" class="rangeSlider" id="myRange">
 					  
 					</div>
 				</td>
@@ -223,7 +237,6 @@ button {
 		</tbody>
 	</table>
 </div>
-
 
 </body>
 </html>
