@@ -54,9 +54,9 @@
 </head>
 
 
-
 <body data-spy="scroll" data-target=".site-navbar-target"
 	data-offset="300">
+	
 	<section style="background-color: #FE919;">
 		<!-- 챌린지 카드 시작 -->
 		<div class="container">

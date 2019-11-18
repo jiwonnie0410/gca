@@ -225,8 +225,8 @@ button {
 			<tr>
 				<td colspan="2">
 					<div class="slidecontainer">
+					  <!-- 범위조절 range slider 민값, 맥스값, 기본값(밸류) -->
 					  <input type="range" min="1" max="15" value="5" class="rangeSlider" id="myRange">
-					  
 					</div>
 				</td>
 			</tr>

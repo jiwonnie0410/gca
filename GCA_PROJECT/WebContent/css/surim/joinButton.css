@@ -1,5 +1,5 @@
 .page {
-  margin: auto;
+  margin: 0 20px 0 20px;
 }
 
 /* add animation to bg color  */
@@ -16,7 +16,7 @@
 .join-btn {
   /* change bg color to get different hues    */
   background-color: salmon;
-  width: 290px;
+  width: 100%;
   height: 40px;
   color: white;
   border: none;
@@ -32,10 +32,9 @@
 }
 
 .start-challenge {
-  background-color: #fff !important;
+  background-color: #fff0 !important
   /* change color of button text when fun is started   */
   color: salmon !important;
-  font-size : 40px;
 }
 
 /* pulsating effect on button */

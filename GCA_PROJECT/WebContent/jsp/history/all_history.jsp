@@ -59,16 +59,23 @@ th {
 	text-align: center;
 }
 
-button {
+.closeBtn {
  background : #FE9191;
  border : none;
  border-radius: 6px;
  height : 30px;
  color : white;
  font-size : large;
- 
 }
 
+.nav-tabs .nav-link.active {
+	color: #FE9191;
+	font-weight: bold;
+}
+
+a.nav-link{
+	color: #959595;
+}
 
 </style>
 
@@ -76,8 +83,6 @@ button {
 
 
 <body>
-
-11
 <!-- The Modal 모달 div -->
 <div id="eventModal" class="modal fade" role="dialog">
 	<div class="modal-dialog">
@@ -93,7 +98,7 @@ button {
 				<p>상태: 반짝</p>
 			</div>
 			<div class="modal-footer">
-				<button type="button" data-dismiss="modal">Close</button>
+				<button type="button" class='closeBtn' data-dismiss="modal">Close</button>
 			</div>
 		</div>
 	</div>
