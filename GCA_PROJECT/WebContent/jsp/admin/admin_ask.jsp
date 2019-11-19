@@ -91,68 +91,52 @@
 					<i class="fas fa-fw fa-folder"></i> <span> 통계 관리 </span>
 			</li>
 		</ul>
-<div id="content-wrapper">
-      <div class="container-fluid">
+<div id="content-wrapper" >
+      <div class="container"><!--    <div class="container-fluid">  -->
 		<center> <h1>문의관리</h1></center>
 			<section class="userlist">
 				<!-- DataTables Example -->
 				<div class="card mb-3">
-					<div class="card-header" style="background-color:#FEBABA; ">회원관리</div>
 					<div class="card-body">
 						<div class="table-responsive">
 							<table class="table table-bordered" id="dataTable" width="100%"
 								cellspacing="0">
 								<thead>
-									<tr>
-									<th >문의 번호</th>	<td> </td>
-									<th >문의 날짜</th>	<td></td>
-									<th>답변상태</th><td ></td>
+									<tr ><a></a>
+									<th >문의 번호</th>
+									<th >문의 날짜</th>
+									<th>답변상태</th>
+									<th>상세보기</th>
 									</tr>
 								</thead>
 								<tfoot>
 									<tr>
-									<th >문의 번호</th>	<td> </td>
-									<th >문의 날짜</th>	<td></td>
-									<th>답변상태</th><td ></td>
+									<th >문의 번호</th>	
+									<th >문의 날짜</th>	
+									<th>답변상태</th>
+									<th>상세보기</th>
 									</tr>
 								</tfoot>
 								<tbody>
-									<tr>
-										<td ><a onClick="window.open('${pageContext.request.contextPath }/jsp/member/profile.jsp','회원싱세보기','width=500,height=500, menubar=no, status=no, toolbar=no');">Tiger Nixon</a></td>
+									<tr >
+										<td >Tiger Nixon</a></td>
 										<td>System Architect</td>
-										<td>Edinburgh</td>
-										<td>61</td>
+										<td><button type="button" class="btn btn-primary px-3 py-2" data-toggle="modal" data-target="#myModal" style="background-color:#FEBABA;border: 1.5px solid #FEBABA;">답변완료</button></td>
+										<td><button type="button" class="btn btn-primary px-3 py-2" data-toggle="modal" data-target="#myModal2l" style="background-color:#FEBABA;border: 1.5px solid #FEBABA;">질문보기</button></td>
 									</tr>
-									<tr>
-										<td><a onClick="window.open('${pageContext.request.contextPath }/jsp/member/profile.jsp','회원싱세보기','width=500,height=500, menubar=no, status=no, toolbar=no');">Tiger Nixon</a>Garrett Winters</td>
+									<tr >
+										<td>Garrett Winters</td>
 										<td>Accountant</td>
-										<td>Tokyo</td>
-										<td>63</td>
+										<td><button type="button" class="btn btn-primary px-3 py-2" data-toggle="modal" data-target="#myModal" style="background-color:#FEBABA;border: 1.5px solid #FEBABA;">미완료</button></td>
+										<td><button type="button" class="btn btn-primary px-3 py-2" data-toggle="modal" data-target="#myModal2" style="background-color:#FEBABA;border: 1.5px solid #FEBABA;">질문보기</button></td>
 									</tr>
 									<tr>
-										<td><a onClick="window.open('${pageContext.request.contextPath }/jsp/member/profile.jsp','회원싱세보기','width=500,height=500, menubar=no, status=no, toolbar=no');">Tiger Nixon</a>Ashton Cox</td>
-										<td>Junior Technical Author</td>
+										<td>Ashton Cox</td>
 										<td>San Francisco</td>
-										<td>66</td>
+										<td><button type="button" class="btn btn-primary px-3 py-2" data-toggle="modal" data-target="#myModal" style="background-color:#FEBABA;border: 1.5px solid #FEBABA;">답변완료</button></td>
+										<td><button type="button" class="btn btn-primary px-3 py-2" data-toggle="modal" data-target="#myModal2" style="background-color:#FEBABA;border: 1.5px solid #FEBABA;">질문보기</button></td>
 									</tr>
-									<tr>
-										<td><a onClick="window.open('${pageContext.request.contextPath }/jsp/member/profile.jsp','회원싱세보기','width=500,height=500, menubar=no, status=no, toolbar=no');">Tiger Nixon</a>Cedric Kelly</td>
-										<td>Senior Javascript Developer</td>
-										<td>Edinburgh</td>
-										<td>22</td>
-									</tr>
-									<tr>
-										<td><a onClick="window.open('${pageContext.request.contextPath }/jsp/member/profile.jsp','회원싱세보기','width=500,height=500, menubar=no, status=no, toolbar=no');">Tiger Nixon</a>Airi Satou</td>
-										<td>Accountant</td>
-										<td>Tokyo</td>
-										<td>33</td>
-									</tr>
-									<tr>
-										<td><a onClick="window.open('${pageContext.request.contextPath }/jsp/member/profile.jsp','회원싱세보기','width=500,height=500, menubar=no, status=no, toolbar=no');">Tiger Nixon</a>Brielle Williamson</td>
-										<td>Integration Specialist</td>
-										<td>New York</td>
-										<td>61</td>
-									</tr>
+									
 								</tbody>
 							</table>
 						</div>
@@ -162,6 +146,92 @@
 	<br>
 	</div>
 	</div>
+	 <!-- Modal -->
+  	<div class="modal fade" id="myModal" role="dialog" >
+    	<div class="modal-dialog modal-lg">
+    
+      	<!-- Modal content-->
+      	<div class="modal-content">
+        <div class="modal-body">
+			<div class="panel-group">
+			<div class="panel panel-success" style="margin-top: 10px;">
+				<div class="panel-heading">문의 답변   <button type="button" class="close" data-dismiss="modal">&times;</button></div>
+				<div class="panel-body">
+					<%-- form --%>
+					<form class="form-horizontal" role="form" action="${review_write}" method="post">
+						<div class="form-group">
+							<label class="control-label col-sm-2">작성자(ID):</label>
+							<div class="col-sm-10">
+								<input type="hidden" id="board_id" name="board_id" value="${boardView.writer}" />
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="control-label col-sm-2" for="pwd">내용:</label>
+							<div class="col-sm-10">
+								 <textarea name="content" id="content" rows="10" cols="100">${boardView.content}</textarea>
+							</div>
+						</div>
+				
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<button type="submit" class="btn btn-success px-3 py-2" style="background-color:#FEBABA;border: 1.5px solid #FEBABA;">작 성</button>
+								<button type="reset" class="btn btn-danger px-3 py-2">초기화</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-info px-3 py-2" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+<!--   <!-- Modal2 _ 질문 상세 읽기 -->
+  <div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog">
+      Modal content
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">문의 사항 읽기</h4>
+        </div>
+        <div class="modal-body">
+          <textarea rows="10" class="form-control" readonly="readonly" id="content">곰 세마리가 한집에 있어 엄마곰 아빠곰 애기곰</textarea>	
+        </div>
+        <div class="modal-footer">
+        						
+          <button type="button" class="btn btn-primary px-3 py-2" data-toggle="modal" data-target="#myModal" style="background-color:#FEBABA;border: 1.5px solid #FEBABA;" >답변</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        	
+        </div>
+      </div>
+      
+    </div>
+  </div>
+	
 	</div>
+	 <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Page level plugin JavaScript-->
+  <script src="vendor/datatables/jquery.dataTables.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin.min.js"></script>
+
+  <!-- Demo scripts for this page-->
+  <script src="js/demo/datatables-demo.js"></script>
+	
 	</body>
 	</html>

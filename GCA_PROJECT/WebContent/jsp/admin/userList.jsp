@@ -100,8 +100,7 @@
 					<div class="card-header" style="background-color:#FEBABA; ">회원관리</div>
 					<div class="card-body">
 						<div class="table-responsive">
-							<table class="table table-bordered" id="dataTable" width="100%"
-								cellspacing="0">
+							<table class="table table-bordered" id="dataTable" width="100%"cellspacing="0">
 								<thead>
 									<tr>
 										<th>회원아이디</th>
@@ -164,6 +163,7 @@
 					</div>
 				</div>
 			</section>
+			
 	<br>
 <!-- -------------------------------------------------------------------------------------------------------------------- -->
 <!-- 처리 상태 선택 -->
@@ -178,7 +178,7 @@
 			<section class="list">
 				<!-- DataTables Example -->
 				<div class="card mb-3">
-					<div class="card-header" style="background-color:#FEBABA;">회원관리</div>
+					<div class="card-header" style="background-color:#FEBABA;">신고관리</div>
 					<div class="card-body">
 						<div class="table-responsive">
 							<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -256,7 +256,7 @@
 			</section>
 		</div>
 	</div>
-	</div>
+</div>
 	
 	<!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
