@@ -25,7 +25,7 @@ div.card.bg-warning{
 	border-color: #FE9191;
 }
 
-div.card.bg-warning div.card-body.text-center{
+div.card.bg-warning div.card-body.text-center{   card.bg-warning 클래스의 div 밑에 card-body.text-center 클래스의 div 에 적용됨.
 	background-color:#fff;
 	color:#FE9191;
 }
@@ -40,7 +40,7 @@ div.card.bg-warning div.card-body.text-center{
 -->
 <style>
 
-.container > div{
+.container > div{ /* 컨테이너 내 div(card 하나하나.) */
 	border: 3px double;
 	border-color: #FE9191;
 	border-radius: 10px;
@@ -54,38 +54,54 @@ div.card.bg-warning div.card-body.text-center{
 
 	background-color: #FAF0F0;
 }
-.container > div:nth-child(2n+1) { /* 홀수번째 카드 분홍색으로 했는데 스페셜챌린지만 분홍색으로 하는게 더 나을듯? */
+.container > div:nth-child(2n+1) { /* 홀수번째 카드 배경색 분홍색(으로 했는데 스페셜챌린지만 분홍색으로 하는게 더 나을까?) */
 	background-color: white;
 }
+
+
+
 
 </style>
 
 </head>
 <body>
-<div style="margin-top: 40px" class="container">	
-	<div>
-		<span style="margin-top:10px;margin-bottom:10px;float:left;">기본<br />기간<br />리워드<br /></span>
-		<span style="float: right;"><img width="140px" height="112px" src="${pageContext.request.contextPath }/images/challenge_ing.png"></span>
+<div style="align-content:center; margin-top: 40px" class="container">
+	<!-- 참여하는순간 [id=card_#] 인 div가 append되고(id 각각 다르게 줘야함-class주는게 낫나?-) 기간 끝나면 성공이냐 실패냐 체크하여 도장이미지 바뀌게 할것임 -->
+	<!-- 컨테이너 안에는 각각 챌린지 카드 div들. -->
+	
+	<div id="card_1" style="position:relative;">
+		<span style="float:left;"><스페셜>자전거 반짝 1회<br />2019.11.3 ~ 2019.11.9<br />점수 500점<br />보증금 1000원~5000원</span>
+		<span style="position:absolute; left:63%; top:0.5%; float: right;">
+			<img width="140px" height="112px" src="${pageContext.request.contextPath }/images/challenge_ing.png">
+		</span>
 	</div>
 	
-	<div style="clear: both;">
-		<span>챌린지22</span>
-		<span style="float: right;"><img width="140px" height="112px" src="${pageContext.request.contextPath }/images/challenge_fail.png"></span>
+	<div id="card_2" style="clear: both; position:relative;">
+		<span style="float:left;"><기본>반짝 2회<br />2019.10.27 ~ 2019.11.2<br />점수 100점</span> <!-- 참여한 챌린지 정보 -->
+		<span style="float: right; position:absolute; left:63%; top:0.5%;">
+			<img width="140px" height="112px" src="${pageContext.request.contextPath }/images/challenge_fail.png"> <!-- 진행/성공/실패여부 도장 -->
+		</span>
 	</div>
 	
-	<div style="clear: both;">
-		<span>챌린지333</span>
-		<span style="float: right;"><img width="140px" height="112px" src="${pageContext.request.contextPath }/images/challenge_success.png"></span>
+	<div id="card_3" style="clear: both; position:relative;">
+		<span style="float:left;"><기본>반짝 3회<br />2019.10.13 ~ 2019.10.19<br />점수 150점</span>
+		<span style="float: right; position:absolute; left:63%; top:0.5%;">
+			<img width="140px" height="112px" src="${pageContext.request.contextPath }/images/challenge_success.png">
+		</span>
 	</div>
 	
-	<div style="clear: both;">
-		<span>챌린지4</span>
-		<span style="float: right;"><img width="140px" height="112px" src="${pageContext.request.contextPath }/images/challenge_ing.png"></span>
+	<div id="card_4" style="clear: both; position:relative;">
+		<span style="float:left;"><기본>러닝 반짝 2회<br />2019.11.3 ~ 2019.11.9<br />점수 120점</span>
+		<span style="float: right; position:absolute; left:63%; top:0.5%;">
+			<img width="140px" height="112px" src="${pageContext.request.contextPath }/images/challenge_ing.png">
+		</span>
 	</div>
 	
-	<div style="clear: both;">
-		<span>챌린지5</span>
-		<span style="float: right;"><img width="140px" height="112px" src="${pageContext.request.contextPath }/images/challenge_success.png"></span>
+	<div id="card_5" style="clear: both; position:relative;">
+		<span style="float:left;"><스페셜>배드민턴 반짝 2회<br />2019.9.29 ~ 2019.10.5<br />점수 800점<br />보증금 1000원~10000원</span>
+		<span style="float: right; position:absolute; left:63%; top:0.5%;">
+			<img width="140px" height="112px" src="${pageContext.request.contextPath }/images/challenge_success.png">
+		</span>
 	</div>
 </div>
 	
