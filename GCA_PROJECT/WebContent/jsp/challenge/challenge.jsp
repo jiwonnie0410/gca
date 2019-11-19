@@ -85,7 +85,7 @@
 							<div class="tab-pane fade show active" id="v-pills-8"
 								role="tabpanel" aria-labelledby="day-8-tab">
 								<div class="coach-wrap ftco-animate d-sm-flex">
-								   <img src="${pageContext.request.contextPath }/images/cycling1.jpg" width="100%" height="50">
+								   <img src="${pageContext.request.contextPath }/images/cycling1.jpg" width="100%" height="30%">
 									<div class="text pl-md-5">
 										<h6>12월 15일(일) ~ 23일(토) 총7일</h6>
 										<h6>자전거관련 반짝 3번 참여하기</h6>
@@ -102,7 +102,7 @@
 							<div class="tab-pane fade" id="v-pills-9" role="tabpanel"
 								aria-labelledby="v-pills-day-9-tab">
 								<div class="coach-wrap ftco-animate d-sm-flex">
-									<img src="${pageContext.request.contextPath }/images/image_2.jpg" width="100%" height="50">
+									<img src="${pageContext.request.contextPath }/images/image_2.jpg" width="100%" height="30%">
 									<div class="text pl-md-5">
 										<h6>12월 25일(수)</h6>
 											<h6>크리스마스에 홈트레이닝하기</h6>
