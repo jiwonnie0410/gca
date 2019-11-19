@@ -65,7 +65,7 @@ $(document).ready(function(){
 
 <style>
 
-.swiper-container { width: 100%; height: 30px; margin: 5px auto; padding: 0 15px 0 15px; }
+.swiper-container { width: 100%; height: 40px; margin: 5px 0 10px 0; padding: 5px 15px 5px 15px; border-top: 1px double #FE9191; border-bottom: 1px double #FE9191;}
 .swiper-slide {
 	text-align: center;
 	font-size: 15px;
@@ -96,8 +96,8 @@ $(document).ready(function(){
 /* .content { line-height: 0.3; } */
 .p1 { font-size: 23pt; position: absolute; margin: 0 0 0 5px;}
 .p2 { font-size: 8pt; position: absolute; margin: 47px 0 0 0;}
-.p3 { font-size: 10pt; position: absolute; margin: 0 0 0 5px;}
-.p4 { font-size: 12pt; font-weight: bold; position: absolute; margin: 19px 0 0 5px;}
+.p3 { font-size: 10pt; position: absolute; margin: 0 0 0 5px; width: 220px; display:block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+.p4 { font-size: 12pt; font-weight: bold; position: absolute; margin: 19px 0 0 5px; width: 220px; display:block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
 .p5 { font-size: 10pt; position: absolute; margin: 47px 0 0 5px;}
 .p6 { font-size: 10pt; position: absolute; margin: 0 0 0 0;}
 .p7 { font-size: 12pt; color: #FE7E7E; font-weight: bold; position: absolute; margin: 19px 0 0 0;}
@@ -113,7 +113,7 @@ $(document).ready(function(){
 
 <body>
 
-<button class="btn btn-info create_room" style="width:100%">방 생성</button>
+<button class="btn btn-info create_room mt-3 ml-3 mr-3" style="width:90%;">반짝 방 생성하기</button>
 
 <div class="swiper-container">
 	<div class="swiper-wrapper">
@@ -133,22 +133,22 @@ $(document).ready(function(){
 </div>
 
 <table class="table table-striped">
-		<tr>
+	<tr height="100px">
 		<td class="td1">
 			<p class="content p1">etc-sport</p>
 			<p class="content p2"><span class="badge badge-dark">중급▲</span></p>
 		</td>
 		
 		<td class="td2">
-			<p class="content p3">진성 초등학교</p>
-			<p class="content p4">같이 달리기 하실 분!</p>
-			<p class="content p5"><span class="badge badge-info mr-2">여성</span>20 ~ 30대</p>
+			<p class="content p3">진성 초등학교진성 초등학교진성 초등학교진성 초등학교진성 초등학교</p>
+			<p class="content p4">같이 달리기 하실 분!같이 달리기 하실 분!같이 달리기 하실 분!같이 달리기 하실 분!</p>
+			<p class="content p5"><span class="badge badge-info mr-2">여성</span>20 ~ 30대<span class="badge badge-pill badge-warning mr-1 ml-2"><font color="red">3</font>&nbsp;/&nbsp;4명</span></p>
 		</td>
 		
 		<td class="td3" align="center">
 			<p class="content p6">19.12.25(수)</p>
 			<p class="content p7">오후10:30</p>
-			<p class="content p8"><span class="badge badge-pill badge-warning mr-1"><font color="red">3</font>&nbsp;/&nbsp;4명</span></p>
+			<p class="content p8"></p>
 		</td>
 	</tr>
 

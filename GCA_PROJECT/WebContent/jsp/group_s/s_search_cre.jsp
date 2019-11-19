@@ -69,21 +69,12 @@ $(document).ready(function(){
 	$('#sg_skill_div .dropdown-menu li').bind('click',function (e) {
 		var html = $(this).html();
 		$('#sg_skill').html(html +'<span class="caret pl-2"></span>');
-		$('#sg_skill').val($('#sg_skill').text());
+		$('#sg_skill').val($('#sg_skill').text().substring(0,2));
+		//console.log($('#sg_skill').val());
 	});
 	
 	//마감 날짜
 	document.getElementById('sg_end_day').min = new Date().toISOString().substring(0, 10);
-	/*
-	var date = new Date($('#sg_end_day').val());
-	var day = date.getDate();
-	var month = date.getMonth()+1;
-	var year = date.getFullYear();
-	
-	var time = $('#sg_end_time').val() + ":00";
-	var fulldate = year + "-" + month + "-" + day + " " + time;
-	$('#sg_end').val(fulldate);
-	*/
 	
 	//마감인원 드롭다운
 	$('#sg_finish_div .dropdown-menu li').bind('click',function (e) {
@@ -92,10 +83,96 @@ $(document).ready(function(){
 		$('#sg_finish').val($('#sg_finish').text().substr(0,1));
 	});
 	
+	
 	//장소 클릭
 	$('#sg_location').on('click', function(){
 		sgAddr();
+	});
+	
+	//다음 주소 API로 주소 입력
+	function sgAddr() {
+		new daum.Postcode({
+			oncomplete : function(data) {
+				var addr = data.address;
+				document.getElementById("sg_location").value = addr;
+				geo.addressSearch(data.address, function(results, status) {
+					if (status === daum.maps.services.Status.OK) {
+						var result = results[0];
+						var coords = new daum.maps.LatLng(result.y, result.x);
+						$('#sg_xy').val(coords.Ha + ", " + coords.Ga);
+						mapContainer.style.display = "block";
+						map.relayout();
+						map.setCenter(coords);
+						marker.setPosition(coords);
+					}
+				});
+			}
+		}).open();
+	}
+	
+	
+	//kakao map api로 주소 입력
+	var geo = new kakao.maps.services.Geocoder();
+	var mapContainer = document.getElementById('map');
+	var mapOption = {
+		center : new daum.maps.LatLng(37.537187, 127.005476),
+		level : 5
+	};
+	var map = new daum.maps.Map(mapContainer, mapOption);
+	var marker = new daum.maps.Marker({
+		position : new daum.maps.LatLng(37.537187, 127.005476),
+		map : map
+	});
+	kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
+		var latlng = mouseEvent.latLng;
+		marker.setPosition(latlng);
+		$('#sg_xy').val(latlng.getLat() + ", " + latlng.getLng());
+		geo.coord2Address(latlng.getLng(), latlng.getLat(), callAddr);
+	});
+	var callAddr = function(result, status) {
+		if (status === kakao.maps.services.Status.OK) {
+			$('#sg_location').val(result[0].address.address_name);
+		}
+	};
+	
+	
+	//이중 슬라이더 사용
+	var skipSlider = document.getElementById('sg_age_bar');
+	
+	noUiSlider.create(skipSlider, {
+	    range: {
+	        'min': 20,
+	        '20%': 30,
+	        '40%': 40,
+	        '60%': 50,
+	        '80%': 60,
+	        'max': 70
+	    },
+	    snap: true,
+	    start: [20, 70]
+	});
+	
+	var skipValues = [
+	    document.getElementById('age_lower'),
+	    document.getElementById('age_upper')
+	];
+	
+	var age1;
+	var age2;
+	skipSlider.noUiSlider.on('update', function (values, handle) {	
+		if(values[0].substr(0,2) == values[1].substr(0,2)){
+			skipValues[0].innerHTML = values[0].substr(0,2) + "대만";
+			skipValues[1].innerHTML = "";
+		} else if(values[1].substr(0,2) != "70"){
+			skipValues[0].innerHTML = values[0].substr(0,2) + "대 이상 ~ ";
+			skipValues[1].innerHTML = values[1].substr(0,2) + "대 미만";
+		} else {
+			skipValues[0].innerHTML = values[0].substr(0,2) + "대 이상 ";
+			skipValues[1].innerHTML = "모든 연령대";
+		}
+		$('#sg_age').val(skipValues[0].innerHTML + skipValues[1].innerHTML)
 	})
+
 	
 	//유효성 검사
 	$('#btn_cre').on('click', function(){
@@ -106,6 +183,7 @@ $(document).ready(function(){
 			$('#sg_name_valid').html('<i class="fas fa-exclamation-circle pr-1"></i>공백만 입력되었습니다. 다시 입력해 주세요.');
 		    return false;
 		}
+		$('#sg_name_valid').hide();
 		
 		var maxByte = 100; //최대 입력 바이트 수
 	    var str = document.getElementById('sg_name').value;
@@ -132,13 +210,67 @@ $(document).ready(function(){
 	        return false;
 	    }
 	    
-	    //선택 항목 검사
-	    if( $('#sg_sport').val() == "" || $('#sg_sport').val().isNull || $('#sg_skill').val() == "" || $('#sg_skill').val().isNull ){
-	    	$('#sg_sport_valid').html('<i class="fas fa-exclamation-circle pr-1"></i>운동 종목과 숙련도를 선택해 주세요.');
+	    //선택 항목 검사1
+ 		if( $('#sg_sport').val() == "" || $('#sg_sport').val().isNull ){
+ 			if( $('#sg_skill').val() == "" || $('#sg_skill').val().isNull ){
+ 				$('#sg_sport_valid').html('<i class="fas fa-exclamation-circle pr-1"></i>운동 종목과 숙련도를 선택해 주세요.');
+ 				return false;
+ 			}
+ 			$('#sg_sport_valid').html('<i class="fas fa-exclamation-circle pr-1"></i>운동 종목을 선택해 주세요.');
+ 			return false;
+ 		} else if( $('#sg_skill').val() == "" || $('#sg_skill').val().isNull ){
+ 			if( $('#sg_sport').val() == "" || $('#sg_sport').val().isNull ){
+ 				$('#sg_sport_valid').html('<i class="fas fa-exclamation-circle pr-1"></i>운동 종목과 숙련도를 선택해 주세요.');
+ 				return false;
+ 			}
+	    	$('#sg_sport_valid').html('<i class="fas fa-exclamation-circle pr-1"></i>숙련도를 선택해 주세요.');
 	    	return false;
 	    }
+ 		$('#sg_sport_valid').hide();
 		
+	    //선택 항목 검사2
+		if( $('#sg_end_day').val() == "" || $('#sg_end_day').val() == null ){
+			if( $('#sg_end_time').val() == "" || $('#sg_end_time').val() == null ){
+				$('#sg_end_valid').show();
+				$('#sg_end_valid').html('<i class="fas fa-exclamation-circle pr-1"></i>마감 시간과 마감 날짜를 입력해 주세요.');
+				return false;
+			}
+			$('#sg_end_valid').show();
+			$('#sg_end_valid').html('<i class="fas fa-exclamation-circle pr-1"></i>마감 날짜를 입력해 주세요.');
+			return false;
+		} else if( $('#sg_end_time').val() == "" || $('#sg_end_time').val() == null ){
+			if( $('#sg_end_day').val() == "" || $('#sg_end_day').val() == null ){
+				$('#sg_end_valid').show();
+				$('#sg_end_valid').html('<i class="fas fa-exclamation-circle pr-1"></i>마감 시간과 마감 날짜를 입력해 주세요.');
+				return false;
+			}
+			$('#sg_end_valid').show();
+			$('#sg_end_valid').html('<i class="fas fa-exclamation-circle pr-1"></i>마감 시간을 입력해 주세요.');
+			return false;
+		} else {
+			$('#sg_end_valid').hide();
+			var date = new Date($('#sg_end_day').val());
+			var day = date.getDate();
+			var month = date.getMonth()+1;
+			var year = date.getFullYear();
+			
+			var time = $('#sg_end_time').val() + ":00";
+			var fulldate = year + "-" + month + "-" + day + " " + time;
+			$('#sg_end').val(fulldate);
+		}
 
+		if( $('#sg_location').val() == "" || $('#sg_location').val() == null){
+			$('#sg_location_valid').html('<i class="fas fa-exclamation-circle pr-1"></i>만날 장소를 입력해 주세요.');
+			return false;
+		}
+		$('#sg_location_valid').hide();
+		
+		if( $('#sg_finish').val() == "" || $('#sg_finish').val() == null ){
+			$('#sg_finish_valid').html('<i class="fas fa-exclamation-circle pr-1"></i>모집 인원을 선택해 주세요.');
+			return false;
+		}
+		$('#sg_finish_valid').hide();
+		
 	})
 
 	
@@ -146,8 +278,6 @@ $(document).ready(function(){
 
 </script>
 <style>
-
-.sg_valid { color: #FE9191; font-size: 15px; }
 
 body{ padding: 10px; }
 
@@ -174,6 +304,7 @@ body{ padding: 10px; }
 .dropdown-menu > li {	color: gray;	font-weight: lighter;	padding: 5px 0 5px 10px;}
 li:hover {	background-color: #FAF0F0 !important;}
 
+.sg_valid { color: #FE9191; font-size: 14px; }
 .d_day {
 	border: 1px solid #FE9191;
 	color: #FE9191;
@@ -319,27 +450,28 @@ li:hover {	background-color: #FAF0F0 !important;}
 				<span class="caret"></span>
 			</button>
 			<ul class="dropdown-menu">
-				<li>입문</li>
-				<li>초급</li>
-				<li>중급</li>
-				<li>고급</li>
+				<li>입문 이상</li>
+				<li>초급 이상</li>
+				<li>중급 이상</li>
+				<li>고급 이상</li>
 			</ul>
 		</div>
 	</div>
 	<span id="sg_sport_valid" class="sg_valid pl-3"></span>
 	</div>
 	
-	<div class="row mr-2 ml-2 mt-3 mb-3 d_day">
+	<div class="row mr-2 ml-2 mt-3 d_day">
 		<span class="ml-2 mr-5" style="margin-top: 2px">마감 날짜</span>
 		<input type="date" id="sg_end_day"><br>
 		<span class="ml-2 mr-5 mt-2" style="margin-top: 2px">마감 시간</span>
 		<input class="mt-2" type="time" id="sg_end_time">
 		<input type="hidden" name="sg_end" id="sg_end">
 	</div>
-	
+	<span id="sg_end_valid" class="sg_valid pl-3" style="display:none;"></span>
 
 	<div class="row mr-2 ml-2 mt-3 mb-3" style="padding: 0px">
 		<input type="text" class="form-control" placeholder="만날 장소를 정해 주세요." id="sg_location" name="sg_location" readonly>
+		<span id="sg_location_valid" class="sg_valid pl-3"></span>
 	</div>
 	<input type="hidden" name="sg_xy" id="sg_xy">
 	<div id="map"></div>
@@ -357,22 +489,24 @@ li:hover {	background-color: #FAF0F0 !important;}
 				<li>4명</li>
 			</ul>
 		</div>
+		<span id="sg_finish_valid" class="sg_valid pl-1"></span>
 	</div>
 	
 	<div class="row mr-2 ml-2 mt-2 mb-2 pt-2">
-		<label class="radio_label ml-3">&nbsp;&nbsp;&nbsp;남자만&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<input type="radio" checked="checked" name="sg_gender" id="sg_gender" value="여성">
+		<label class="radio_label ml-3">&nbsp;&nbsp;&nbsp;혼성&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="radio" checked="checked" name="sg_gender" id="sg_gender" value="혼성">
 			<span class="checkmark"></span>
 		</label>
-		<label class="radio_label">&nbsp;&nbsp;&nbsp;여자만&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<label class="radio_label">&nbsp;&nbsp;&nbsp;여성만&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="radio" name="sg_gender" id="sg_gender" value="여성">
+			<span class="checkmark"></span>
+		</label>
+		<label class="radio_label">&nbsp;&nbsp;&nbsp;남성만&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<input type="radio" name="sg_gender" id="sg_gender" value="남성">
 			<span class="checkmark"></span>
 		</label>
-		<label class="radio_label">&nbsp;&nbsp;&nbsp;혼성&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<input type="radio" name="sg_gender" id="sg_gender" value="혼성">
-			<span class="checkmark"></span>
-		</label>
 	</div>
+	<span id="sg_gender_valid" class="sg_valid pl-3" style="display:none;"></span>
 
 
 	<span class="ml-2" id="age_title"><i class="fas fa-pencil-alt mr-2"></i>연령대를 선택해 주세요.</span><br>
@@ -408,92 +542,6 @@ li:hover {	background-color: #FAF0F0 !important;}
 </form>
 
 <script>
-//이중 슬라이더 사용
-var skipSlider = document.getElementById('sg_age_bar');
-
-noUiSlider.create(skipSlider, {
-    range: {
-        'min': 20,
-        '20%': 30,
-        '40%': 40,
-        '60%': 50,
-        '80%': 60,
-        'max': 70
-    },
-    snap: true,
-    start: [20, 70]
-});
-
-var skipValues = [
-    document.getElementById('age_lower'),
-    document.getElementById('age_upper')
-];
-
-var age1;
-var age2;
-skipSlider.noUiSlider.on('update', function (values, handle) {	
-	if(values[0].substr(0,2) == values[1].substr(0,2)){
-		skipValues[0].innerHTML = values[0].substr(0,2) + "대만";
-		skipValues[1].innerHTML = "";
-	} else if(values[1].substr(0,2) != "70"){
-		skipValues[0].innerHTML = values[0].substr(0,2) + "대 이상 ~ ";
-		skipValues[1].innerHTML = values[1].substr(0,2) + "대 미만";
-	} else {
-		skipValues[0].innerHTML = values[0].substr(0,2) + "대 이상 ";
-		skipValues[1].innerHTML = "모든 연령대";
-	}
-	$('#sg_age').val(skipValues[0].innerHTML + skipValues[1].innerHTML)
-})
-
-//kakao map api로 주소 입력
-var geo = new kakao.maps.services.Geocoder();
-
-//맵 생성 : window.onload로 변수 값 지정
-var mapContainer = document.getElementById('map'); //지도를 표시할 div
-var mapOption = {
-	center : new daum.maps.LatLng(37.537187, 127.005476), //지도의 중심 좌표
-	level : 5	// 지도의 확대 레벨
-};
-var map = new daum.maps.Map(mapContainer, mapOption); //지도를 미리 생성
-var marker = new daum.maps.Marker({
-	position : new daum.maps.LatLng(37.537187, 127.005476),
-	map : map
-}); //마커를 미리 생성
-
-//맵 클릭시 좌표 값 가져와서 마커 위치/주소 변경
-kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
-	var latlng = mouseEvent.latLng; //클릭한 지점의 좌표 값
-	marker.setPosition(latlng); //클릭한 지점으로 마커 위치 옮김
-	$('#sg_xy').val(latlng.getLat() + ", " + latlng.getLng()); //value값 변경
-	geo.coord2Address(latlng.getLng(), latlng.getLat(), callAddr); //좌표값에 따른 주소 불러옴(아래 메소드)
-});
-
-var callAddr = function(result, status) {
-	if (status === kakao.maps.services.Status.OK) {
-		$('#sg_location').val(result[0].address.address_name);
-	}
-};
-
-function sgAddr() {
-	new daum.Postcode({
-		oncomplete : function(data) {
-			var addr = data.address; //최종 주소 변수
-			document.getElementById("sg_location").value = addr; //주소 정보를 해당 필드에 넣는다.
-			geo.addressSearch(data.address, function(results, status) { //주소로 상세 정보를 검색
-				if (status === daum.maps.services.Status.OK) { //정상적으로 검색이 완료됐으면
-					var result = results[0]; //첫번째 결과의 값을 활용
-					var coords = new daum.maps.LatLng(result.y, result.x); // 해당 주소에 대한 좌표를 받아서
-					$('#sg_xy').val(coords.Ha + ", " + coords.Ga); //xy value값에 넣음
-					mapContainer.style.display = "block"; //감춰졌던 지도 보여줌.
-					map.relayout();
-					map.setCenter(coords); //지도 중심점 변경
-					marker.setPosition(coords); //이동된 중심점으로 마커 옮김
-				}
-			});
-		}
-	}).open();
-}
-
 
 
 </script>
