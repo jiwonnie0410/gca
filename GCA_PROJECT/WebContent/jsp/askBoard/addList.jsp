@@ -270,7 +270,64 @@
            
         </form>
         
+<!--   <!-- Modal _ 질문 작성 -->
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog modal-lg">
 
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-body">
+
+					<div class="panel-group">
+						<div class="panel panel-success" style="margin-top: 10px; border-color:  #FE9191;'">
+								<div class="panel-heading" style="background-color: #FE9191; color: black">문의 사항<button type="button" class="close" data-dismiss="modal">&times;</button></div>
+							<div class="panel-body">
+								<%-- form --%>
+								<form class="form-horizontal" role="form"action="${review_write}" method="post">
+									<div class="form-group">
+										<label class="control-label col-sm-2">작성자(ID):</label>
+										<div class="col-sm-10">
+											<input type="hidden" id="board_id" name="board_id"
+												value="${boardView.writer}" />
+										</div>
+									</div>
+									<div class="form-group">
+									<br>
+										<select class="form-control" style="border-color: pink; width:250; margin-left:10 ">
+											<option	> 질문 유형 </option>
+											<option	>1 </option>
+											<option	> 2 </option>
+											<option	>3 </option>
+											<option	> 4</option>
+										</select>
+									
+									</div>
+
+									<div class="form-group">
+										<label class="control-label col-sm-2" for="pwd">내용:</label>
+										<div class="col-sm-10">
+											<textarea name="content" id="content" rows="10" cols="37" style="border-color: pink;">${boardView.content}</textarea>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="col-sm-offset-2 col-sm-10">
+											<button type="submit" class="btn btn-success">작 성</button>
+											<button type="reset" class="btn btn-danger">초기화</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
         
         
         
@@ -333,5 +390,5 @@
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.js"></script>
-
+<script src="ckeditor/ckeditor.js"></script>
 </html>

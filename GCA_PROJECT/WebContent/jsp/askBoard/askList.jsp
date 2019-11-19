@@ -44,7 +44,6 @@
 <!-- Latest compiled JavaScript -->
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script src="//cdn.ckeditor.com/4.7.1/standard/ckeditor.js"></script>
 <style>
 table {
 	table-layout: fixed;
@@ -54,8 +53,7 @@ table {
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
-	align
-	="center"
+	align="center";
 }
 </style>
 </head>
@@ -120,8 +118,8 @@ table {
 				<div class="modal-body">
 
 					<div class="panel-group">
-						<div class="panel panel-success" style="margin-top: 10px;">
-								<div class="panel-heading" style="background-color: pink; color: black">문의 사항<button type="button" class="close" data-dismiss="modal">&times;</button></div>
+						<div class="panel panel-success" style="margin-top: 10px; border-color:  #FE9191;'">
+								<div class="panel-heading" style="background-color: #FE9191; color: black">문의 사항<button type="button" class="close" data-dismiss="modal">&times;</button></div>
 							<div class="panel-body">
 								<%-- form --%>
 								<form class="form-horizontal" role="form"action="${review_write}" method="post">
@@ -133,26 +131,21 @@ table {
 										</div>
 									</div>
 									<div class="form-group">
-										<div class ="dropdown">
-										&nbsp;&nbsp;
-										<label class="control-label ">제목:</label>
-											 <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">제목
-										    </button>
-										    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-										      <li role="presentation">ㅇ</li>
-										      <li role="presentation" class="divider">ㅇㅇ</li>
-										      <li role="presentation">ㅇㅇㅇ</li>
-										      <li role="presentation">ㅇㅇㅇㅇ</li>
-										      <li role="presentation" class="divider">ㅇㅇㅇㅇㅇ</li>
-										      <li role="presentation">ㅇㅇㅇㅇㅇ</li>
-										    </ul>
-											</div>
+									<br>
+										<select class="form-control" style="border-color: pink; width:250; margin-left:10 ">
+											<option	> 질문 유형 </option>
+											<option	>1 </option>
+											<option	> 2 </option>
+											<option	>3 </option>
+											<option	> 4</option>
+										</select>
+									
 									</div>
 
 									<div class="form-group">
 										<label class="control-label col-sm-2" for="pwd">내용:</label>
 										<div class="col-sm-10">
-											<textarea name="content" id="content" rows="10" cols="37">${boardView.content}</textarea>
+											<textarea name="content" id="content" rows="10" cols="37" style="border-color: pink;">${boardView.content}</textarea>
 										</div>
 									</div>
 
